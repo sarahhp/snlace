@@ -1,0 +1,6 @@
+name: lace
+channels:
+- bioconda
+dependencies:
+- networkx 1.11
+- lace
