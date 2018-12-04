@@ -3,22 +3,22 @@
     "dataset":"talens_100ksub",
 
     "genome_name":"M.mus.GRCm38",
-    "genome_dir":"../References/Genomes/Mus_musculus/GRCm38_ensembl93",
+    "genome_dir":"References/Genomes/Mus_musculus/GRCm38_ensembl93",
     "genome_file":"Mus_musculus.GRCm38.dna.toplevel.fa",
 
-    "annot_files":["../References/Annotations/Mus_musculus/GRCm38_ensembl93/Mus_musculus.GRCm38.93.gtf"],
+    "annot_files":["References/Annotations/Mus_musculus/GRCm38_ensembl93/Mus_musculus.GRCm38.93.gtf"],
 
     "raw_dir":"../TALENs/NB501086_0047_TSoboleva_JCSMR_stranded_RNASeq/fastq/",
 
-    "fastq_dir":"qc/subsamples/50000",
+    "fastq_dir":"output_data/qc/subsamples/50000",
     "samples":["NMG3-60hemi_S1","NMG3-62wt_S2","NMG3-74wt_S3"],
     "fastq_suffix":"_subsample.fastq.gz",
     "pair_notation":"R",
 
     "relatedsp_names":"H.sap",
-    "relatedsp_genome_file":"../References/Genomes/Homo_sapiens/GRCh38_ensembl93/Homo_sapiens.GRCh38.dna.toplevel.fa",
-    "relatedsp_annot_files":["../References/Annotations/Homo_sapiens/GRCh38_ensembl93/Homo_sapiens.GRCh38.93.gtf"],
-    "relatedsp_superT_dir":"../References/superTranscriptomes",
+    "relatedsp_genome_file":"References/Genomes/Homo_sapiens/GRCh38_ensembl93/Homo_sapiens.GRCh38.dna.toplevel.fa",
+    "relatedsp_annot_files":["References/Annotations/Homo_sapiens/GRCh38_ensembl93/Homo_sapiens.GRCh38.93.gtf"],
+    "relatedsp_superT_dir":"References/superTranscriptomes",
 
     "params":{
         "hisat-build":"-q",
