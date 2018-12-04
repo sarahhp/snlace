@@ -10,7 +10,7 @@ __date__ = "2018-10-16"
 
 import os
 
-TOOLS= "../pipeline/tools"
+TOOLS= "tools"
 
 #configfile: "necklace.json"
 SP_NAMES = config["relatedsp_names"]
