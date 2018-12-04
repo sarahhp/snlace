@@ -8,7 +8,7 @@
 
     "annot_files":["References/Annotations/Mus_musculus/GRCm38_ensembl93/Mus_musculus.GRCm38.93.gtf"],
 
-    "raw_dir":"../TALENs/NB501086_0047_TSoboleva_JCSMR_stranded_RNASeq/fastq/",
+    "raw_dir":"TALENs/NB501086_0047_TSoboleva_JCSMR_stranded_RNASeq/fastq/",
 
     "fastq_dir":"output_data/qc/subsamples/50000",
     "samples":["NMG3-60hemi_S1","NMG3-62wt_S2","NMG3-74wt_S3"],
