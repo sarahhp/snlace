@@ -7,7 +7,24 @@ Pipeline consists of two snakemake workflows.  One for preprocessing of the raw 
 To run:
 
 1. Set up an enviornment with the following tools and their dependencies:
-(for 
+  for both workflows: 
+  - snakemake (at least 3.4 (I think) for snecklace pipeline) 
+
+  for preprocessing workflow only: 
+  - fastp 
+  - seqtk
+  - gzip
+
+  for snecklace: 
+  - hisat2 
+  - samtools 
+  - stringtie 
+  - gffread 
+  - trinity 
+  - blat 
+  - subread 
+  - biopython 
+  - pandas
 
 2. Edit the config.json file with paths to data and reference genomes.  
 
