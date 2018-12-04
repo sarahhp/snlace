@@ -25,8 +25,8 @@ rule all:
         #related species files are in a different folder and can be reused
         OUTPUT_DIR + "clustering/" + DATASET + ".clusters",
         OUTPUT_DIR + "superT/" + DATASET + "_SuperDuper.fa",
-        OUTPUT_DIR + expand ("mapped_reads/{sample}.sum.txt", sample = config["samples"]),
-        "counts/" + DATASET + "_gene.counts",
+        expand (OUTPUT_DIR + "mapped_reads/{sample}.sum.txt", sample = config["samples"]),
+        OUTPUT_DIR + "counts/" + DATASET + "_gene.counts",
         
         #final summary statistics
         OUTPUT_DIR + "stats/" + DATASET + ".sum.tab",
