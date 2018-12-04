@@ -41,7 +41,8 @@ from get_denovo_sum import getTrinityStats
 
 #include: "get_counts.py"
 
-STAT_OUTDIR = "stats/"
+OUTPUT_DIR = "output_data/"
+STAT_OUTDIR = OUTPUT_DIR + "stats/"
 
 #configfile: "necklace.json"
 DATASET = config["dataset"]
@@ -49,7 +50,7 @@ DATASET = config["dataset"]
 rule get_hisat_summary:
     version: "3.0"
     input:
-        map_sum = "mapped_reads/" + config["samples"][0] + ".sum.txt"
+        map_sum = OUTPUT_DIR + "mapped_reads/" + config["samples"][0] + ".sum.txt"
     output:
         sum_file = STAT_OUTDIR + DATASET + "_hisat.sum.tab"
     run: 
@@ -58,8 +59,8 @@ rule get_hisat_summary:
 rule get_featureCounts:
     version: "3.0"
     input:
-        blocks = "counts/" + DATASET + "_block.counts",
-        genes = "counts/" + DATASET + "_gene.counts"
+        blocks = OUTPUT_DIR + "counts/" + DATASET + "_block.counts",
+        genes = OUTPUT_DIR + "counts/" + DATASET + "_gene.counts"
     output:
         sum_file = STAT_OUTDIR + DATASET + "_fc.sum.tab"
     run:
@@ -69,7 +70,7 @@ rule get_featureCounts:
 rule novel_splicesites:
     version: "3.0"
     input:
-        expand ("mapped_reads/{sample}.splicesites",
+        OUTPUT_DIR + expand ("mapped_reads/{sample}.splicesites",
                 sample =  config["samples"])
     output:
         STAT_OUTDIR + DATASET + ".splicesites"
@@ -79,9 +80,9 @@ rule novel_splicesites:
 rule superT_stats:
     version: "3.0"
     input:
-        gtf = "counts/" + DATASET + "_blocks.gtf",
-        gene_counts = "counts/" + DATASET + "_gene.counts",
-        fasta = "superT/" + DATASET + "_SuperDuper.fa",
+        gtf = OUTPUT_DIR + "counts/" + DATASET + "_blocks.gtf",
+        gene_counts = OUTPUT_DIR + "counts/" + DATASET + "_gene.counts",
+        fasta = OUTPUT_DIR + "superT/" + DATASET + "_SuperDuper.fa",
         hisat = STAT_OUTDIR + DATASET + "_hisat.sum.tab",
         fc = STAT_OUTDIR + DATASET + "_fc.sum.tab",
         splice_file = STAT_OUTDIR + DATASET + ".splicesites"
@@ -108,7 +109,7 @@ rule superT_stats:
 rule related_denovo_stats:
     version: "3.0"
     input:
-        denovo_stats = "de_novo_assembly/" + DATASET + "_de_novo.sum.txt",
+        denovo_stats = OUTPUT_DIR + "de_novo_assembly/" + DATASET + "_de_novo.sum.txt",
         relsp_gtf = expand ("{superTdir}/{species}/{species}_combined.gtf",
                         superTdir =config["relatedsp_superT_dir"],
                         species = config ["relatedsp_names"]),
@@ -135,7 +136,7 @@ rule time_stats:
     '''
     version: "3.4"
     input:
-        "counts/" + DATASET + "_gene.counts"
+        OUTPUT_DIR + "counts/" + DATASET + "_gene.counts"
     output:
         time_sum = STAT_OUTDIR + DATASET + ".times.tab"
     run:
