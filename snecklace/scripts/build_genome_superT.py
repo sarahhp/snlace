@@ -10,8 +10,9 @@ __date__ = "2018-10-02"
 
 #include: "build_genome_guided_assembly.py"
 
-TOOLS = "../pipeline/tools"
-GGST_OUTDIR = "genome_superT/"
+TOOLS = "tools"
+OUTPUT_DIR = "output_data/"
+GGST_OUTDIR = OUTPUT_DIR + "genome_superT/"
 
 #configfile: "necklace.json"
 DATASET = config["dataset"]
@@ -20,7 +21,7 @@ rule merge_genome_annotations:
     version: "3.2"
     input:
         annots = config["annot_files"],
-        cust_annot = "genome_guided_assembly/" + DATASET + "_assembly.gtf"
+        cust_annot = OUTPUT_DIR + "genome_guided_assembly/" + DATASET + "_assembly.gtf"
     params:
         config["params"]["stringtie_merge"]
     benchmark: GGST_OUTDIR + "04merge_gga.times.tab"
