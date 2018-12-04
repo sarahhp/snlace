@@ -31,7 +31,7 @@ import Bio.Seq
 import pandas as pd
 
 #custom helper scripts
-sys.path.append(os.path.join(os.getcwd(),"workflows/snecklace/stats_scripts"))
+sys.path.append(os.path.join(os.getcwd(),"output_data/workflows/snecklace/stats_scripts"))
 import get_hisat_sum as hisat_sum
 import get_fc_sum as fc_sum
 import get_no_genes as no_genes
@@ -70,7 +70,7 @@ rule get_featureCounts:
 rule novel_splicesites:
     version: "3.0"
     input:
-        OUTPUT_DIR + expand ("mapped_reads/{sample}.splicesites",
+        expand (OUTPUT_DIR + "mapped_reads/{sample}.splicesites",
                 sample =  config["samples"])
     output:
         STAT_OUTDIR + DATASET + ".splicesites"

@@ -20,7 +20,7 @@ rule get_splice_blocks:
     version: "3.0"
     input:
         superT = OUTPUT_DIR + "superT/" + DATASET + "_SuperDuper.fa",
-        splicesites = OUTPUT_DIR + expand ("mapped_reads/{sample}.splicesites",
+        splicesites = expand (OUTPUT_DIR + "mapped_reads/{sample}.splicesites",
                                          sample = config["samples"]) 
     output:
         gene_sizes = COUNT_OUTDIR + "gene.sizes",
@@ -34,7 +34,7 @@ rule get_splice_blocks:
 rule count_reads:
     version: "3.4"
     input:
-        alns = OUTPUT_DIR + expand ("mapped_reads/{sample}.sorted.bam",
+        alns = expand (OUTPUT_DIR + "mapped_reads/{sample}.sorted.bam",
                                   sample = config["samples"]),
         blocks = COUNT_OUTDIR + DATASET + "_blocks.gtf"
     params:
