@@ -8,7 +8,8 @@ __date__ = "2018-11-02"
 
 #include: "run_lace.py"
 
-MAP_OUTDIR = "mapped_reads/"
+OUTPUT_DIR = "output_data/"
+MAP_OUTDIR = OUTPUT_DIR + "mapped_reads/"
 
 #configfile: "necklace.json"
 SUPERT_INDEX = MAP_OUTDIR + "indices/" + config["dataset"] + "_superT"
@@ -16,7 +17,7 @@ SUPERT_INDEX = MAP_OUTDIR + "indices/" + config["dataset"] + "_superT"
 rule build_superT_index:
     version: "3.4"
     input:
-        superT = "superT/" + config["dataset"] + "_SuperDuper.fa"
+        superT = OUTPUT_DIR + "superT/" + config["dataset"] + "_SuperDuper.fa"
     params:
         config["params"]["hisat-build"]
     benchmark: MAP_OUTDIR + "11superT_index.times.tab"
