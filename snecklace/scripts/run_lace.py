@@ -6,7 +6,7 @@ __date__ = "2018-11-02"
 #include: "cluster.py"
 
 OUTPUT_DIR = "output_data/"
-ST_OUTDIR = "superT"
+ST_OUTDIR = OUTPUT_DIR + "superT"
 
 DATASET = config["dataset"]
 #configfile: "necklace.json"
