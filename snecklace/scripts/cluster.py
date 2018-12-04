@@ -18,18 +18,19 @@ __date__ = "2018-10-02"
 #include: "build_de_novo_assembly.py"
 #include: "build_relatedsp_superT.py"
 
-TOOLS = "../pipeline/tools"
-CLUSTER_OUTDIR = "clustering/"
+TOOLS = "tools"
+OUTPUT_DIR = "output_data/"
+CLUSTER_OUTDIR = OUTPUT_DIR + "clustering/"
 
 #configfile: "necklace.json"
 DATASET = config["dataset"]
 
 """Files from previous workflows:  """
-make_genome = "genome_superT/" + DATASET + "_genome_superT.fa" 
-make_related = expand ("{rel_dir}/{species}/{species}_superT.fa",
+make_genome = OUTPUT_DIR + "genome_superT/" + DATASET + "_genome_superT.fa" 
+make_related = OUTPUT_DIR + expand ("{rel_dir}/{species}/{species}_superT.fa",
                        rel_dir = config["relatedsp_superT_dir"],
                        species = config["relatedsp_names"])
-make_de_novo = "de_novo_assembly/" + DATASET + "_de_novo.fa"
+make_de_novo = OUTPUT_DIR + "de_novo_assembly/" + DATASET + "_de_novo.fa"
 
 rule blat_relST_genomeST:
     version: "3.0"
