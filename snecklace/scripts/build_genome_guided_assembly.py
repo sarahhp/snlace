@@ -11,7 +11,8 @@ __date__ = "2018-11-02"
 
 import os
 
-GGA_OUTDIR = "genome_guided_assembly/"
+OUTPUT_DIR = "output_data/"
+GGA_OUTDIR = OUTPUT_DIR + "genome_guided_assembly/"
 
 #configfile: "necklace.json"
 DATASET = config["dataset"]
