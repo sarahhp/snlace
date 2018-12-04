@@ -3,14 +3,14 @@
     "dataset":"talens",
 
     "genome_name":"M.mus.GRCm38",
-    "genome_dir":"../References/Genomes/Mus_musculus/GRCm38_ensembl93",
+    "genome_dir":"References/Genomes/Mus_musculus/GRCm38_ensembl93",
     "genome_file":"Mus_musculus.GRCm38.dna.toplevel.fa",
 
-    "annot_files":["../References/Annotations/Mus_musculus/GRCm38_ensembl93/Mus_musculus.GRCm38.93.gtf"],
+    "annot_files":["References/Annotations/Mus_musculus/GRCm38_ensembl93/Mus_musculus.GRCm38.93.gtf"],
 
-    "raw_dir":"../TALENs/",
+    "raw_dir":"TALENs/",
 
-    "fastq_dir":"qc/trimmed",
+    "fastq_dir":"output_data/qc/trimmed",
     "samples":["NMG3-60hemi_S1","NMG3-62wt_S2","NMG3-74wt_S3","NMG3-75hemi_S4","NMG3-76wt_S5","NMG3-77hemi_S6",
 		"10_13_wt_OB_S7",       "10_26_hemi_OB_S12",    "10_35_wt_HIPPO_S1",    "10_50_wt_OB_S9",
                 "1_21_hemi_HIPPO_S4",   "10_14_hemi_OB_S11",    "10_27_hemi_PFC_S17",   "10_35_wt_PFC_S13",
@@ -22,9 +22,9 @@
     "pair_notation":"R",
 
     "relatedsp_names":"H.sap",
-    "relatedsp_genome_file":"../References/Genomes/Homo_sapiens/GRCh38_ensembl93/Homo_sapiens.GRCh38.dna.toplevel.fa",
-    "relatedsp_annot_files":["../References/Annotations/Homo_sapiens/GRCh38_ensembl93/Homo_sapiens.GRCh38.93.gtf"],
-    "relatedsp_superT_dir":"../References/superTranscriptomes",
+    "relatedsp_genome_file":"References/Genomes/Homo_sapiens/GRCh38_ensembl93/Homo_sapiens.GRCh38.dna.toplevel.fa",
+    "relatedsp_annot_files":["References/Annotations/Homo_sapiens/GRCh38_ensembl93/Homo_sapiens.GRCh38.93.gtf"],
+    "relatedsp_superT_dir":"References/superTranscriptomes",
 
     "params":{
         "hisat-build":"-q",
