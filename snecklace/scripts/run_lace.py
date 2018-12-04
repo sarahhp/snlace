@@ -5,6 +5,7 @@ __date__ = "2018-11-02"
 
 #include: "cluster.py"
 
+OUTPUT_DIR = "output_data/"
 ST_OUTDIR = "superT"
 
 DATASET = config["dataset"]
@@ -13,8 +14,8 @@ DATASET = config["dataset"]
 rule run_lace:
     version: "3.4"
     input:
-        seqs = "clustering/" + DATASET + "_sequences.fa",
-        clusters = "clustering/" + DATASET + ".clusters"
+        seqs = OUTPUT_DIR + "clustering/" + DATASET + "_sequences.fa",
+        clusters = OUTPUT_DIR + "clustering/" + DATASET + ".clusters"
     conda: "../envs/lace.yml"
     threads: config["max_threads"]
     benchmark: ST_OUTDIR + "/10lace.times.tab"
