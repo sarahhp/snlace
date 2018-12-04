@@ -6,7 +6,8 @@
 __author__ = "Sarah Hazell Pickering (sarah.pickering@anu.edu.au)"
 __date__ = "2018-11-02"
 
-DA_OUTDIR = "de_novo_assembly/"
+OUTPUT_DIR = "output_data/"
+DA_OUTDIR = OUTPUT_DIR + "de_novo_assembly/"
 
 #configfile: "necklace.json"
 DATASET = config["dataset"]
