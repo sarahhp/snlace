@@ -15,13 +15,13 @@ DIR="/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/necklace/
 #snakemake -s trim_subsample.py -d /home --configfile config.json --cores 40 -pr
 
 #necklace test case
-#snakemake -s snecklace/Snakefile -d $DIR --configfile 'test.config.json' -j 28  --use-conda -pr 
+snakemake -s snecklace/Snakefile -d $DIR --configfile 'test.config.json' -j 28  --use-conda -pr 
 #snakemake -s snecklace/Snakefile -d /home --configfile 'test.config.json' -j 8 --use-conda -pr --force count_reads
 #snakemake -s snecklace/Snakefile -d /home --configfile 'test.config.json' -j 4 --use-conda -pr --force count_reads
 #snakemake -s snecklace/Snakefile -d /home --configfile 'test.config.json' -j 2 --use-conda -pr --force count_reads
 
 #test blat/pblat:
-snakemake -s snecklace/Snakefile -d $DIR --configfile 'test.config.json' -j 28 --use-conda -pr blat_genomeST_denovo
+#snakemake -s snecklace/Snakefile -d $DIR --configfile 'test.config.json' -j 28 --use-conda -pr blat_genomeST_denovo
 
 #conda test
 #conda create -f snecklace/envs/lace.yml --name lace
@@ -31,3 +31,8 @@ snakemake -s snecklace/Snakefile -d $DIR --configfile 'test.config.json' -j 28 -
 
 #test lace independently:
 #nakemake -s snecklace/Snakefile -d /home --configfile 'test.config.json' --cores --use-conda -pr run_lace --force
+
+FULL="/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/necklace/all"
+#-------------FULL RUN ----------------------------
+snakemake -s snecklace/Snakefile -d $FULL --configfile config.json -j 32  --use-conda -npr
+#snakemake -s snecklace/Snakefile -d $FULL --configfile config.json -j 32  --use-conda -pr

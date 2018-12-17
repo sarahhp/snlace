@@ -7,12 +7,11 @@
 """
 
 __author__ = "Sarah Hazell Pickering (sarah.pickering@anu.edu.au)"
-__date__ = "2018-11-02"
+__date__ = "2018-10-02"
 
 import os
 
-OUTPUT_DIR = "output_data/"
-GGA_OUTDIR = OUTPUT_DIR + "genome_guided_assembly/"
+GGA_OUTDIR = "genome_guided_assembly/"
 
 #configfile: "necklace.json"
 DATASET = config["dataset"]
@@ -20,7 +19,7 @@ GENOME_NAME = config["genome_name"]
 GENOME_INDEX = config["genome_dir"] + "/index/" + GENOME_NAME
 
 rule build_genome_index:
-    version:"3.4"
+    version:"3.0"
     input:
         genome_file = expand ("{genome_dir}/{file_name}", 
                                genome_dir = config["genome_dir"],
@@ -31,7 +30,7 @@ rule build_genome_index:
     output:
         genome_idx = GENOME_INDEX + ".1.ht2l"
     shell:
-        "hisat2-build {params} --large-index {input.genome_file} {GENOME_INDEX} "
+        "hisat2-build {params} {input.genome_file} {GENOME_INDEX} "
 
 rule gtf_to_splice_sites:
     version: "3.0"

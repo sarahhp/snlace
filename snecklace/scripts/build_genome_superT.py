@@ -6,13 +6,12 @@
 """
 
 __author__ = "Sarah Hazell Pickering (sarah.pickering@anu.edu.au)"
-__date__ = "2018-10-02"
+__date__ = "2018-11-06"
 
 #include: "build_genome_guided_assembly.py"
 
-TOOLS = "tools"
-OUTPUT_DIR = "output_data/"
-GGST_OUTDIR = OUTPUT_DIR + "genome_superT/"
+TOOLS = "../tools" 
+GGST_OUTDIR = "genome_superT/"
 
 #configfile: "necklace.json"
 DATASET = config["dataset"]
@@ -21,7 +20,7 @@ rule merge_genome_annotations:
     version: "3.2"
     input:
         annots = config["annot_files"],
-        cust_annot = OUTPUT_DIR + "genome_guided_assembly/" + DATASET + "_assembly.gtf"
+        cust_annot = "genome_guided_assembly/" + DATASET + "_assembly.gtf"
     params:
         config["params"]["stringtie_merge"]
     benchmark: GGST_OUTDIR + "04merge_gga.times.tab"
