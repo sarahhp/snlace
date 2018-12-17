@@ -40,7 +40,7 @@ rule count_reads:
     params:
         gene_opt = config["params"]["featureCounts_genes"],
         block_opt = config["params"]["featureCounts_blocks"]
-    threads: config["max_threads"]-1
+    threads: round(config["max_threads"]/4)
     benchmark: COUNT_OUTDIR + "13featurecounts.times.tab"
     output:
         gene = COUNT_OUTDIR + DATASET + "_gene.counts",
