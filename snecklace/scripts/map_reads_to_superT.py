@@ -4,12 +4,12 @@
        3. do 2. for all samples
 """
 __author__ = "Sarah Hazell Pickering (sarah.pickering@anu.edu.au)"
-__date__ = "2018-11-02"
+__date__ = "2018-12-17"
 
 #include: "run_lace.py"
 
 OUTPUT_DIR = "output_data/"
-MAP_OUTDIR = OUTPUT_DIR + "mapped_reads/"
+MAP_OUTDIR = "mapped_reads/"
 
 #configfile: "necklace.json"
 SUPERT_INDEX = MAP_OUTDIR + "indices/" + config["dataset"] + "_superT"
@@ -17,7 +17,7 @@ SUPERT_INDEX = MAP_OUTDIR + "indices/" + config["dataset"] + "_superT"
 rule build_superT_index:
     version: "3.4"
     input:
-        superT = OUTPUT_DIR + "superT/" + config["dataset"] + "_SuperDuper.fa"
+        superT = "superT/" + config["dataset"] + "_SuperDuper.fa"
     params:
         config["params"]["hisat-build"]
     benchmark: MAP_OUTDIR + "11superT_index.times.tab"

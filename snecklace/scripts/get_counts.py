@@ -5,13 +5,13 @@
 """
 
 __author__ = "Sarah Hazell Pickering (sarah.pickering@anu.edu.au)"
-__date__ = "2018-11-02"
+__date__ = "2018-12-17"
 
 #include: "map_reads_to_superT.py"
 
-TOOLS = "tools"
+TOOLS = "../tools"
 OUTPUT_DIR = "output_data/"
-COUNT_OUTDIR = OUTPUT_DIR  + "counts/"
+COUNT_OUTDIR = "counts/"
 
 #configfile: "necklace.json"
 DATASET = config["dataset"]
@@ -19,8 +19,8 @@ DATASET = config["dataset"]
 rule get_splice_blocks:
     version: "3.0"
     input:
-        superT = OUTPUT_DIR + "superT/" + DATASET + "_SuperDuper.fa",
-        splicesites = expand (OUTPUT_DIR + "mapped_reads/{sample}.splicesites",
+        superT = "superT/" + DATASET + "_SuperDuper.fa",
+        splicesites = expand ("mapped_reads/{sample}.splicesites",
                                          sample = config["samples"]) 
     output:
         gene_sizes = COUNT_OUTDIR + "gene.sizes",
@@ -34,13 +34,13 @@ rule get_splice_blocks:
 rule count_reads:
     version: "3.4"
     input:
-        alns = expand (OUTPUT_DIR + "mapped_reads/{sample}.sorted.bam",
+        alns = expand ("mapped_reads/{sample}.sorted.bam",
                                   sample = config["samples"]),
         blocks = COUNT_OUTDIR + DATASET + "_blocks.gtf"
     params:
         gene_opt = config["params"]["featureCounts_genes"],
         block_opt = config["params"]["featureCounts_blocks"]
-    threads: round(config["max_threads"]/4)
+    threads: config["max_threads"]
     benchmark: COUNT_OUTDIR + "13featurecounts.times.tab"
     output:
         gene = COUNT_OUTDIR + DATASET + "_gene.counts",
