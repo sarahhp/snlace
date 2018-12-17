@@ -141,9 +141,11 @@ rule time_stats:
         time_sum = STAT_OUTDIR + DATASET + ".times.tab"
     run:
         first_file = True
-        outdirs = ["genome_guided_assembly","genome_superT","de_novo_assembly", \
-           config["relatedsp_superT_dir"] + "/"  + config["relatedsp_names"], \
-           "clustering","superT","mapped_reads", "counts"]
+        outdirs = [OUTPUT_DIR + "genome_guided_assembly", \
+                   OUTPUT_DIR + "genome_superT", OUTPUT_DIR + "de_novo_assembly", \
+                   config["relatedsp_superT_dir"] + "/"  + config["relatedsp_names"], \
+                   OUTPUT_DIR + "clustering",OUTPUT_DIR + "superT", \
+                   OUTPUT_DIR + "mapped_reads", OUTPUT_DIR + "counts"] 
         for out in outdirs:
             files = os.listdir(out)
             for path in files:
