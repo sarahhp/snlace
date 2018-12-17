@@ -41,5 +41,5 @@
     "home_dirs":{
         "trinity":"/usr/local/opt/trinity-2.8.4"
 	},
-    "max_threads":40
+    "max_threads":64
 }

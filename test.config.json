@@ -11,7 +11,13 @@
     "raw_dir":"TALENs/NB501086_0047_TSoboleva_JCSMR_stranded_RNASeq/fastq/",
 
     "fastq_dir":"output_data/qc/subsamples/50000",
-    "samples":["NMG3-60hemi_S1","NMG3-62wt_S2","NMG3-74wt_S3"],
+    "samples":["NMG3-60hemi_S1","NMG3-62wt_S2","NMG3-74wt_S3","NMG3-75hemi_S4","NMG3-76wt_S5","NMG3-77hemi_S6",
+                "10_13_wt_OB_S7",       "10_26_hemi_OB_S12",    "10_35_wt_HIPPO_S1",    "10_50_wt_OB_S9",
+                "1_21_hemi_HIPPO_S4",   "10_14_hemi_OB_S11",    "10_27_hemi_PFC_S17",   "10_35_wt_PFC_S13",
+                "10_9_hemi_OB_S10",     "1_21_hemi_PFC_S16",    "10_16_hemi_HIPPO_S6",  "10_28_hemi_HIPPO_S5",
+                "10_42_wt_HIPPO_S2",    "1_12_wt_HIPPO_S3",     "10_25_wt_OB_S8",       "10_28_hemi_PFC_S18",
+                "10_42_wt_PFC_S14",     "1_12_wt_PFC_S15", "S1_S1_rs", "S2_S2_rs", "S3_S3_rs", "S4_S4_rs",
+                "S5_S5_rs", "S6_S6_rs"],
     "fastq_suffix":"_subsample.fastq.gz",
     "pair_notation":"R",
 
@@ -35,5 +41,5 @@
     "home_dirs":{
         "trinity":"/usr/local/opt/trinity-2.8.4"
 	},
-    "max_threads":40
+    "max_threads":64
 }
