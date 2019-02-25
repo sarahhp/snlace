@@ -12,13 +12,14 @@
 """
 
 __author__ = "Sarah Hazell Pickering (sarah.pickering@anu.edu.au)"
-__date__ = "2018-10-02"
+__date__ = "2018-12-17"
 
 #include: "build_genome_superT.py"
 #include: "build_de_novo_assembly.py"
 #include: "build_relatedsp_superT.py"
 
-TOOLS = "../pipeline/tools"
+TOOLS = "tools"
+OUTPUT_DIR = "output_data/"
 CLUSTER_OUTDIR = "clustering/"
 
 #configfile: "necklace.json"
@@ -45,12 +46,13 @@ rule blat_relST_genomeST:
         "blat {input.related} {input.genome} {params} {output} "
 
 rule blat_relST_denovo:
-    version: "3.0"
+    version: "3.7"
     input:
         related = make_related,
         de_novo = make_de_novo
     params:
          config["params"]["blat_related"]
+    #threads: config["max_threads"]-1
     benchmark: CLUSTER_OUTDIR + "08blat_relST_denovo.times.tab"
     output:
         CLUSTER_OUTDIR + "relST_denovo.psl"
@@ -58,17 +60,18 @@ rule blat_relST_denovo:
         "blat {input.related} {input.de_novo} {params} {output}"
 
 rule blat_genomeST_denovo:
-    version: "3.0"
+    version: "3.7"
     input:
         genome = make_genome,
         de_novo = make_de_novo
     params:
         config["params"]["blat"]
+    threads: config["max_threads"]-1
     benchmark: CLUSTER_OUTDIR + "09blat_gST_denovo.times.tab"
     output:
         CLUSTER_OUTDIR + "genomeST_denovo.psl"
     shell:
-        "blat {input.genome} {input.de_novo} {params} {output}"
+        "pblat threads={threads} {params} {input.genome} {input.de_novo} {output}"
 
 rule genome_ST_names:
     version: "3.0"

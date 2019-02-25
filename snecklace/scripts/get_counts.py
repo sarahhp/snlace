@@ -5,11 +5,12 @@
 """
 
 __author__ = "Sarah Hazell Pickering (sarah.pickering@anu.edu.au)"
-__date__ = "2018-11-02"
+__date__ = "2018-12-17"
 
 #include: "map_reads_to_superT.py"
 
-TOOLS = "../pipeline/tools"
+TOOLS = "../tools"
+OUTPUT_DIR = "output_data/"
 COUNT_OUTDIR = "counts/"
 
 #configfile: "necklace.json"
@@ -39,7 +40,7 @@ rule count_reads:
     params:
         gene_opt = config["params"]["featureCounts_genes"],
         block_opt = config["params"]["featureCounts_blocks"]
-    threads: config["max_threads"]-1
+    threads: config["max_threads"]
     benchmark: COUNT_OUTDIR + "13featurecounts.times.tab"
     output:
         gene = COUNT_OUTDIR + DATASET + "_gene.counts",

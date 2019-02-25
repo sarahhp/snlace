@@ -31,7 +31,7 @@ import Bio.Seq
 import pandas as pd
 
 #custom helper scripts
-sys.path.append(os.path.join(os.getcwd(),"workflows/snecklace/stats_scripts"))
+sys.path.append("/home/sarah/pkgs/nlace/snlace/snecklace/stats_scripts")
 import get_hisat_sum as hisat_sum
 import get_fc_sum as fc_sum
 import get_no_genes as no_genes
@@ -41,6 +41,7 @@ from get_denovo_sum import getTrinityStats
 
 #include: "get_counts.py"
 
+OUTPUT_DIR = "output_data/"
 STAT_OUTDIR = "stats/"
 
 #configfile: "necklace.json"
@@ -140,9 +141,11 @@ rule time_stats:
         time_sum = STAT_OUTDIR + DATASET + ".times.tab"
     run:
         first_file = True
-        outdirs = ["genome_guided_assembly","genome_superT","de_novo_assembly", \
-           config["relatedsp_superT_dir"] + "/"  + config["relatedsp_names"], \
-           "clustering","superT","mapped_reads", "counts"]
+        outdirs = ["genome_guided_assembly", \
+                   "genome_superT", "de_novo_assembly", \
+                   config["relatedsp_superT_dir"] + "/"  + config["relatedsp_names"], \
+                   "clustering", "superT", \
+                   "mapped_reads", "counts"] 
         for out in outdirs:
             files = os.listdir(out)
             for path in files:

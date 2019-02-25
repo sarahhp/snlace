@@ -4,10 +4,11 @@
        3. do 2. for all samples
 """
 __author__ = "Sarah Hazell Pickering (sarah.pickering@anu.edu.au)"
-__date__ = "2018-11-02"
+__date__ = "2018-12-17"
 
 #include: "run_lace.py"
 
+OUTPUT_DIR = "output_data/"
 MAP_OUTDIR = "mapped_reads/"
 
 #configfile: "necklace.json"

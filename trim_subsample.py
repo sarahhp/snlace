@@ -21,8 +21,8 @@ import random
 
 RAW = config["raw_dir"]
 NOTATION = config["pair_notation"]
-QC = "qc/"
-SUB = "qc/subsamples/"
+QC = "output_data/qc/"
+SUB = QC + "subsamples/"
 NO_READS = 50000
 FASTP_PARAMS = ""
 
