@@ -16,15 +16,17 @@ rule run_lace:
     input:
         seqs = "clustering/" + DATASET + "_sequences.fa",
         clusters = "clustering/" + DATASET + ".clusters"
+    params:
+        config["params"]["lace"]
     conda: "../envs/lace.yml"
     threads: config["max_threads"]
     benchmark: ST_OUTDIR + "/10lace.times.tab"
     output:
         final = ST_OUTDIR + "/" + DATASET + "_SuperDuper.fa",
-        working = directory(ST_OUTDIR + "/SuperFiles/")
+        working = directory(ST_OUTDIR + "/SuperFiles")
     shell:
        # "conda upgrade matplotlib -y; "
-        "Lace.py --cores {threads} "
+        "Lace.py --cores {threads} {params} "
            # "--tidy "
             "--outputDir {output.working} "
             "{input.seqs} {input.clusters} ;"

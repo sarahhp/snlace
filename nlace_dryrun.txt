@@ -1,0 +1,626 @@
+Building DAG of jobs...
+Conda environment /home/sarah/pkgs/nlace/snlace/snecklace/scripts/../envs/lace.yml will be created.
+Job counts:
+	count	jobs
+	1	all
+	1	blat_genomeST_denovo
+	1	blat_relST_denovo
+	1	blat_relST_genomeST
+	1	build_superT_index
+	1	clean_de_novo
+	1	count_reads
+	1	de_novo_assembly
+	1	extract_exons_from_fasta
+	1	flatten_gtf
+	1	genome_ST_names
+	1	genome_assembly
+	1	get_featureCounts
+	1	get_hisat_summary
+	1	get_splice_blocks
+	1	make_cluster_files_for_lace
+	1	map_reads_to_genome
+	30	map_reads_to_superT
+	1	merge_genome_annotations
+	1	novel_splicesites
+	1	related_denovo_stats
+	1	run_lace
+	1	superT_stats
+	1	time_stats
+	53
+
+[Mon Dec 17 15:04:09 2018]
+rule map_reads_to_genome:
+    input: /Data/References/Genomes/Mus_musculus/GRCm38_mm10/index/M.mus.GRCm38.1.ht2l, /Data/References/Annotations/Mus_musculus/GRCm38_ensembl93/M.mus.GRCm38.splicesites, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-60hemi_S1_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-62wt_S2_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-74wt_S3_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-75hemi_S4_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-76wt_S5_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-77hemi_S6_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_13_wt_OB_S7_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_26_hemi_OB_S12_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_35_wt_HIPPO_S1_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_50_wt_OB_S9_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/1_21_hemi_HIPPO_S4_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_14_hemi_OB_S11_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_27_hemi_PFC_S17_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_35_wt_PFC_S13_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_9_hemi_OB_S10_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/1_21_hemi_PFC_S16_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_16_hemi_HIPPO_S6_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_28_hemi_HIPPO_S5_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_42_wt_HIPPO_S2_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/1_12_wt_HIPPO_S3_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_25_wt_OB_S8_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_28_hemi_PFC_S18_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_42_wt_PFC_S14_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/1_12_wt_PFC_S15_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S1_S1_rs_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S2_S2_rs_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S3_S3_rs_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S4_S4_rs_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S5_S5_rs_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S6_S6_rs_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-60hemi_S1_R2_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-62wt_S2_R2_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-74wt_S3_R2_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-75hemi_S4_R2_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-76wt_S5_R2_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-77hemi_S6_R2_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_13_wt_OB_S7_R2_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_26_hemi_OB_S12_R2_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_35_wt_HIPPO_S1_R2_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_50_wt_OB_S9_R2_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/1_21_hemi_HIPPO_S4_R2_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_14_hemi_OB_S11_R2_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_27_hemi_PFC_S17_R2_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_35_wt_PFC_S13_R2_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_9_hemi_OB_S10_R2_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/1_21_hemi_PFC_S16_R2_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_16_hemi_HIPPO_S6_R2_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_28_hemi_HIPPO_S5_R2_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_42_wt_HIPPO_S2_R2_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/1_12_wt_HIPPO_S3_R2_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_25_wt_OB_S8_R2_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_28_hemi_PFC_S18_R2_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_42_wt_PFC_S14_R2_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/1_12_wt_PFC_S15_R2_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S1_S1_rs_R2_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S2_S2_rs_R2_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S3_S3_rs_R2_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S4_S4_rs_R2_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S5_S5_rs_R2_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S6_S6_rs_R2_subsample.fastq.gz
+    output: genome_guided_assembly/talens_100ksub_novel.splicesites, genome_guided_assembly/talens_100ksub.sum.txt, genome_guided_assembly/talens_100ksub.sorted.bam
+    jobid: 50
+    benchmark: genome_guided_assembly/02hisat2.times.tab
+    reason: Missing output files: genome_guided_assembly/talens_100ksub.sorted.bam
+
+hisat2  --known-splicesite-infile /Data/References/Annotations/Mus_musculus/GRCm38_ensembl93/M.mus.GRCm38.splicesites --novel-splicesite-outfile genome_guided_assembly/talens_100ksub_novel.splicesites --dta     --summary-file genome_guided_assembly/talens_100ksub.sum.txt -x /Data/References/Genomes/Mus_musculus/GRCm38_mm10/index/M.mus.GRCm38 -1 /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-60hemi_S1_R1_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-62wt_S2_R1_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-74wt_S3_R1_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-75hemi_S4_R1_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-76wt_S5_R1_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-77hemi_S6_R1_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_13_wt_OB_S7_R1_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_26_hemi_OB_S12_R1_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_35_wt_HIPPO_S1_R1_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_50_wt_OB_S9_R1_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/1_21_hemi_HIPPO_S4_R1_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_14_hemi_OB_S11_R1_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_27_hemi_PFC_S17_R1_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_35_wt_PFC_S13_R1_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_9_hemi_OB_S10_R1_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/1_21_hemi_PFC_S16_R1_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_16_hemi_HIPPO_S6_R1_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_28_hemi_HIPPO_S5_R1_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_42_wt_HIPPO_S2_R1_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/1_12_wt_HIPPO_S3_R1_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_25_wt_OB_S8_R1_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_28_hemi_PFC_S18_R1_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_42_wt_PFC_S14_R1_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/1_12_wt_PFC_S15_R1_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S1_S1_rs_R1_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S2_S2_rs_R1_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S3_S3_rs_R1_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S4_S4_rs_R1_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S5_S5_rs_R1_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S6_S6_rs_R1_subsample.fastq.gz -2 /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-60hemi_S1_R2_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-62wt_S2_R2_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-74wt_S3_R2_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-75hemi_S4_R2_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-76wt_S5_R2_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-77hemi_S6_R2_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_13_wt_OB_S7_R2_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_26_hemi_OB_S12_R2_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_35_wt_HIPPO_S1_R2_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_50_wt_OB_S9_R2_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/1_21_hemi_HIPPO_S4_R2_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_14_hemi_OB_S11_R2_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_27_hemi_PFC_S17_R2_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_35_wt_PFC_S13_R2_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_9_hemi_OB_S10_R2_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/1_21_hemi_PFC_S16_R2_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_16_hemi_HIPPO_S6_R2_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_28_hemi_HIPPO_S5_R2_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_42_wt_HIPPO_S2_R2_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/1_12_wt_HIPPO_S3_R2_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_25_wt_OB_S8_R2_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_28_hemi_PFC_S18_R2_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_42_wt_PFC_S14_R2_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/1_12_wt_PFC_S15_R2_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S1_S1_rs_R2_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S2_S2_rs_R2_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S3_S3_rs_R2_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S4_S4_rs_R2_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S5_S5_rs_R2_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S6_S6_rs_R2_subsample.fastq.gz  | samtools view -Su -  | samtools sort - -o genome_guided_assembly/talens_100ksub.sorted.bam 
+
+[Mon Dec 17 15:04:09 2018]
+rule de_novo_assembly:
+    input: /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-60hemi_S1_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-62wt_S2_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-74wt_S3_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-75hemi_S4_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-76wt_S5_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-77hemi_S6_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_13_wt_OB_S7_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_26_hemi_OB_S12_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_35_wt_HIPPO_S1_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_50_wt_OB_S9_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/1_21_hemi_HIPPO_S4_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_14_hemi_OB_S11_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_27_hemi_PFC_S17_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_35_wt_PFC_S13_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_9_hemi_OB_S10_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/1_21_hemi_PFC_S16_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_16_hemi_HIPPO_S6_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_28_hemi_HIPPO_S5_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_42_wt_HIPPO_S2_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/1_12_wt_HIPPO_S3_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_25_wt_OB_S8_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_28_hemi_PFC_S18_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_42_wt_PFC_S14_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/1_12_wt_PFC_S15_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S1_S1_rs_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S2_S2_rs_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S3_S3_rs_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S4_S4_rs_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S5_S5_rs_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S6_S6_rs_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-60hemi_S1_R2_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-62wt_S2_R2_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-74wt_S3_R2_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-75hemi_S4_R2_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-76wt_S5_R2_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-77hemi_S6_R2_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_13_wt_OB_S7_R2_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_26_hemi_OB_S12_R2_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_35_wt_HIPPO_S1_R2_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_50_wt_OB_S9_R2_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/1_21_hemi_HIPPO_S4_R2_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_14_hemi_OB_S11_R2_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_27_hemi_PFC_S17_R2_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_35_wt_PFC_S13_R2_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_9_hemi_OB_S10_R2_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/1_21_hemi_PFC_S16_R2_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_16_hemi_HIPPO_S6_R2_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_28_hemi_HIPPO_S5_R2_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_42_wt_HIPPO_S2_R2_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/1_12_wt_HIPPO_S3_R2_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_25_wt_OB_S8_R2_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_28_hemi_PFC_S18_R2_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_42_wt_PFC_S14_R2_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/1_12_wt_PFC_S15_R2_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S1_S1_rs_R2_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S2_S2_rs_R2_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S3_S3_rs_R2_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S4_S4_rs_R2_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S5_S5_rs_R2_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S6_S6_rs_R2_subsample.fastq.gz
+    output: trinity_out_dir.Trinity.fasta
+    jobid: 48
+    benchmark: de_novo_assembly/06trinity.times.tab
+    reason: Missing output files: trinity_out_dir.Trinity.fasta
+    threads: 28
+
+Trinity --seqType fq --max_memory 50G --left /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-60hemi_S1_R1_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-62wt_S2_R1_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-74wt_S3_R1_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-75hemi_S4_R1_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-76wt_S5_R1_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-77hemi_S6_R1_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_13_wt_OB_S7_R1_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_26_hemi_OB_S12_R1_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_35_wt_HIPPO_S1_R1_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_50_wt_OB_S9_R1_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/1_21_hemi_HIPPO_S4_R1_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_14_hemi_OB_S11_R1_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_27_hemi_PFC_S17_R1_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_35_wt_PFC_S13_R1_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_9_hemi_OB_S10_R1_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/1_21_hemi_PFC_S16_R1_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_16_hemi_HIPPO_S6_R1_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_28_hemi_HIPPO_S5_R1_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_42_wt_HIPPO_S2_R1_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/1_12_wt_HIPPO_S3_R1_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_25_wt_OB_S8_R1_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_28_hemi_PFC_S18_R1_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_42_wt_PFC_S14_R1_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/1_12_wt_PFC_S15_R1_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S1_S1_rs_R1_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S2_S2_rs_R1_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S3_S3_rs_R1_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S4_S4_rs_R1_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S5_S5_rs_R1_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S6_S6_rs_R1_subsample.fastq.gz --right /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-60hemi_S1_R2_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-62wt_S2_R2_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-74wt_S3_R2_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-75hemi_S4_R2_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-76wt_S5_R2_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-77hemi_S6_R2_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_13_wt_OB_S7_R2_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_26_hemi_OB_S12_R2_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_35_wt_HIPPO_S1_R2_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_50_wt_OB_S9_R2_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/1_21_hemi_HIPPO_S4_R2_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_14_hemi_OB_S11_R2_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_27_hemi_PFC_S17_R2_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_35_wt_PFC_S13_R2_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_9_hemi_OB_S10_R2_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/1_21_hemi_PFC_S16_R2_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_16_hemi_HIPPO_S6_R2_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_28_hemi_HIPPO_S5_R2_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_42_wt_HIPPO_S2_R2_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/1_12_wt_HIPPO_S3_R2_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_25_wt_OB_S8_R2_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_28_hemi_PFC_S18_R2_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_42_wt_PFC_S14_R2_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/1_12_wt_PFC_S15_R2_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S1_S1_rs_R2_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S2_S2_rs_R2_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S3_S3_rs_R2_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S4_S4_rs_R2_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S5_S5_rs_R2_subsample.fastq.gz,/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S6_S6_rs_R2_subsample.fastq.gz --CPU 28 --full_cleanup 
+
+[Mon Dec 17 15:04:09 2018]
+rule genome_assembly:
+    input: genome_guided_assembly/talens_100ksub.sorted.bam
+    output: genome_guided_assembly/talens_100ksub_assembly.gtf
+    jobid: 24
+    benchmark: genome_guided_assembly/03stringtie_assembly.times.tab
+    reason: Missing output files: genome_guided_assembly/talens_100ksub_assembly.gtf; Input files updated by another job: genome_guided_assembly/talens_100ksub.sorted.bam
+
+stringtie genome_guided_assembly/talens_100ksub.sorted.bam -o genome_guided_assembly/talens_100ksub_assembly.gtf 
+
+[Mon Dec 17 15:04:09 2018]
+rule clean_de_novo:
+    input: trinity_out_dir.Trinity.fasta
+    output: de_novo_assembly/talens_100ksub_de_novo.sum.txt, de_novo_assembly/talens_100ksub_de_novo.fa
+    jobid: 17
+    reason: Missing output files: de_novo_assembly/talens_100ksub_de_novo.sum.txt, de_novo_assembly/talens_100ksub_de_novo.fa; Input files updated by another job: trinity_out_dir.Trinity.fasta
+
+mv trinity_out_dir.Trinity.fasta de_novo_assembly/talens_100ksub_de_novo.fa ;/home/sarah/pkgs/conda/miniconda/envs/nlace2/opt/trinity-2.8.4/util/TrinityStats.pl de_novo_assembly/talens_100ksub_de_novo.fa > de_novo_assembly/talens_100ksub_de_novo.sum.txt ;mv trinity_out_dir.Trinity.fasta.gene_trans_map de_novo_assembly/ 
+
+[Mon Dec 17 15:04:09 2018]
+rule related_denovo_stats:
+    input: de_novo_assembly/talens_100ksub_de_novo.sum.txt, /Data/References/superTranscriptomes/H.sap/H.sap_combined.gtf, /Data/References/superTranscriptomes/H.sap/H.sap_superT.fa
+    output: stats/talens_100ksub_rel_denovo.sum.tab
+    jobid: 13
+    reason: Missing output files: stats/talens_100ksub_rel_denovo.sum.tab; Input files updated by another job: de_novo_assembly/talens_100ksub_de_novo.sum.txt
+
+[Mon Dec 17 15:04:09 2018]
+rule blat_relST_denovo:
+    input: /Data/References/superTranscriptomes/H.sap/H.sap_superT.fa, de_novo_assembly/talens_100ksub_de_novo.fa
+    output: clustering/relST_denovo.psl
+    jobid: 45
+    benchmark: clustering/08blat_relST_denovo.times.tab
+    reason: Missing output files: clustering/relST_denovo.psl; Input files updated by another job: de_novo_assembly/talens_100ksub_de_novo.fa
+    threads: 28
+
+pblat threads=28 -t=dnax -q=dnax -minScore=200 /Data/References/superTranscriptomes/H.sap/H.sap_superT.fa de_novo_assembly/talens_100ksub_de_novo.fa clustering/relST_denovo.psl
+
+[Mon Dec 17 15:04:09 2018]
+rule merge_genome_annotations:
+    input: /Data/References/Annotations/Mus_musculus/GRCm38_ensembl93/Mus_musculus.GRCm38.93.gtf, genome_guided_assembly/talens_100ksub_assembly.gtf
+    output: genome_superT/talens_100ksub_genome_merged.gtf
+    jobid: 54
+    benchmark: genome_superT/04merge_gga.times.tab
+    reason: Missing output files: genome_superT/talens_100ksub_genome_merged.gtf; Input files updated by another job: genome_guided_assembly/talens_100ksub_assembly.gtf
+
+stringtie --merge  -G /Data/References/Annotations/Mus_musculus/GRCm38_ensembl93/Mus_musculus.GRCm38.93.gtf -o genome_superT/talens_100ksub_genome_merged.gtf genome_guided_assembly/talens_100ksub_assembly.gtf /Data/References/Annotations/Mus_musculus/GRCm38_ensembl93/Mus_musculus.GRCm38.93.gtf 
+
+[Mon Dec 17 15:04:09 2018]
+rule flatten_gtf:
+    input: genome_superT/talens_100ksub_genome_merged.gtf
+    output: genome_superT/talens_100ksub_genome_merged.flat.gtf
+    jobid: 41
+    reason: Missing output files: genome_superT/talens_100ksub_genome_merged.flat.gtf; Input files updated by another job: genome_superT/talens_100ksub_genome_merged.gtf
+
+../tools/gtf2flatgtf genome_superT/talens_100ksub_genome_merged.gtf genome_superT/talens_100ksub_genome_merged.flat.gtf
+
+[Mon Dec 17 15:04:09 2018]
+rule extract_exons_from_fasta:
+    input: genome_superT/talens_100ksub_genome_merged.flat.gtf, /Data/References/Genomes/Mus_musculus/GRCm38_mm10/Mus_musculus.GRCm38.dna.toplevel.fa
+    output: genome_superT/talens_100ksub_genome_superT.fa
+    jobid: 7
+    reason: Missing output files: genome_superT/talens_100ksub_genome_superT.fa; Input files updated by another job: genome_superT/talens_100ksub_genome_merged.flat.gtf
+
+gffread genome_superT/talens_100ksub_genome_merged.flat.gtf -g /Data/References/Genomes/Mus_musculus/GRCm38_mm10/Mus_musculus.GRCm38.dna.toplevel.fa -w genome_superT/talens_100ksub_genome_superT.fa
+
+[Mon Dec 17 15:04:09 2018]
+rule genome_ST_names:
+    input: genome_superT/talens_100ksub_genome_superT.fa
+    output: clustering/talens_100ksub_superT.names
+    jobid: 46
+    reason: Missing output files: clustering/talens_100ksub_superT.names; Input files updated by another job: genome_superT/talens_100ksub_genome_superT.fa
+
+grep "^>" genome_superT/talens_100ksub_genome_superT.fa | sed 's/>//g' | cut -f1 -d " " > clustering/talens_100ksub_superT.names
+
+[Mon Dec 17 15:04:09 2018]
+rule blat_relST_genomeST:
+    input: genome_superT/talens_100ksub_genome_superT.fa, /Data/References/superTranscriptomes/H.sap/H.sap_superT.fa
+    output: clustering/relST_genomeST.psl
+    jobid: 47
+    benchmark: clustering/07blat_relST_gST.times.tab
+    reason: Missing output files: clustering/relST_genomeST.psl; Input files updated by another job: genome_superT/talens_100ksub_genome_superT.fa
+
+blat /Data/References/superTranscriptomes/H.sap/H.sap_superT.fa genome_superT/talens_100ksub_genome_superT.fa -t=dnax -q=dnax -minScore=200 clustering/relST_genomeST.psl 
+
+[Mon Dec 17 15:04:09 2018]
+rule blat_genomeST_denovo:
+    input: genome_superT/talens_100ksub_genome_superT.fa, de_novo_assembly/talens_100ksub_de_novo.fa
+    output: clustering/genomeST_denovo.psl
+    jobid: 44
+    benchmark: clustering/09blat_gST_denovo.times.tab
+    reason: Missing output files: clustering/genomeST_denovo.psl; Input files updated by another job: genome_superT/talens_100ksub_genome_superT.fa, de_novo_assembly/talens_100ksub_de_novo.fa
+    threads: 28
+
+pblat threads=28 -minScore=200 -minIdentity=98 genome_superT/talens_100ksub_genome_superT.fa de_novo_assembly/talens_100ksub_de_novo.fa clustering/genomeST_denovo.psl
+
+[Mon Dec 17 15:04:09 2018]
+rule make_cluster_files_for_lace:
+    input: clustering/genomeST_denovo.psl, clustering/relST_denovo.psl, clustering/relST_genomeST.psl, clustering/talens_100ksub_superT.names, genome_superT/talens_100ksub_genome_superT.fa, de_novo_assembly/talens_100ksub_de_novo.fa
+    output: clustering/talens_100ksub.clusters, clustering/talens_100ksub_sequences.fa
+    jobid: 14
+    reason: Missing output files: clustering/talens_100ksub.clusters, clustering/talens_100ksub_sequences.fa; Input files updated by another job: genome_superT/talens_100ksub_genome_superT.fa, de_novo_assembly/talens_100ksub_de_novo.fa, clustering/genomeST_denovo.psl, clustering/relST_denovo.psl, clustering/talens_100ksub_superT.names, clustering/relST_genomeST.psl
+
+../tools/cluster clustering/genomeST_denovo.psl clustering/relST_denovo.psl clustering/relST_genomeST.psl clustering/talens_100ksub_superT.names > clustering/talens_100ksub.clusters ;cat genome_superT/talens_100ksub_genome_superT.fa de_novo_assembly/talens_100ksub_de_novo.fa > clustering/talens_100ksub_sequences.fa 
+
+[Mon Dec 17 15:04:09 2018]
+rule run_lace:
+    input: clustering/talens_100ksub_sequences.fa, clustering/talens_100ksub.clusters
+    output: superT/talens_100ksub_SuperDuper.fa, superT/SuperFiles/
+    jobid: 28
+    benchmark: superT/10lace.times.tab
+    reason: Missing output files: superT/talens_100ksub_SuperDuper.fa; Input files updated by another job: clustering/talens_100ksub.clusters, clustering/talens_100ksub_sequences.fa
+    threads: 28
+
+Lace.py --cores 28 --outputDir superT/SuperFiles/ clustering/talens_100ksub_sequences.fa clustering/talens_100ksub.clusters ;mv superT/SuperFiles//SuperDuper.fasta superT/talens_100ksub_SuperDuper.fa ;mv superT/SuperFiles//SuperDuper.gff superT/SuperDuper.gff 
+
+[Mon Dec 17 15:04:09 2018]
+rule build_superT_index:
+    input: superT/talens_100ksub_SuperDuper.fa
+    output: mapped_reads/indices/talens_100ksub_superT.1.ht2l
+    jobid: 40
+    benchmark: mapped_reads/11superT_index.times.tab
+    reason: Missing output files: mapped_reads/indices/talens_100ksub_superT.1.ht2l; Input files updated by another job: superT/talens_100ksub_SuperDuper.fa
+
+hisat2-build -q --large-index superT/talens_100ksub_SuperDuper.fa mapped_reads/indices/talens_100ksub_superT
+
+[Mon Dec 17 15:04:09 2018]
+rule map_reads_to_superT:
+    input: mapped_reads/indices/talens_100ksub_superT.1.ht2l, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-62wt_S2_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-62wt_S2_R2_subsample.fastq.gz
+    output: mapped_reads/NMG3-62wt_S2.sum.txt, mapped_reads/NMG3-62wt_S2.splicesites, mapped_reads/NMG3-62wt_S2.sorted.bam, mapped_reads/NMG3-62wt_S2.sorted.bam.bai
+    jobid: 27
+    benchmark: mapped_reads/12NMG3-62wt_S2.times.tab
+    reason: Missing output files: mapped_reads/NMG3-62wt_S2.sum.txt, mapped_reads/NMG3-62wt_S2.sorted.bam, mapped_reads/NMG3-62wt_S2.splicesites; Input files updated by another job: mapped_reads/indices/talens_100ksub_superT.1.ht2l
+    wildcards: sample=NMG3-62wt_S2
+
+hisat2 --pen-noncansplice 0 --threads 1 --summary-file mapped_reads/NMG3-62wt_S2.sum.txt --novel-splicesite-outfile mapped_reads/NMG3-62wt_S2.splicesites -x mapped_reads/indices/talens_100ksub_superT -1 /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-62wt_S2_R1_subsample.fastq.gz -2 /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-62wt_S2_R2_subsample.fastq.gz | samtools view -Su | samtools sort - -o mapped_reads/NMG3-62wt_S2.sorted.bam 
+samtools index mapped_reads/NMG3-62wt_S2.sorted.bam mapped_reads/NMG3-62wt_S2.sorted.bam.bai 
+
+[Mon Dec 17 15:04:09 2018]
+rule map_reads_to_superT:
+    input: mapped_reads/indices/talens_100ksub_superT.1.ht2l, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S6_S6_rs_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S6_S6_rs_R2_subsample.fastq.gz
+    output: mapped_reads/S6_S6_rs.sum.txt, mapped_reads/S6_S6_rs.splicesites, mapped_reads/S6_S6_rs.sorted.bam, mapped_reads/S6_S6_rs.sorted.bam.bai
+    jobid: 5
+    benchmark: mapped_reads/12S6_S6_rs.times.tab
+    reason: Missing output files: mapped_reads/S6_S6_rs.splicesites, mapped_reads/S6_S6_rs.sorted.bam, mapped_reads/S6_S6_rs.sum.txt; Input files updated by another job: mapped_reads/indices/talens_100ksub_superT.1.ht2l
+    wildcards: sample=S6_S6_rs
+
+hisat2 --pen-noncansplice 0 --threads 1 --summary-file mapped_reads/S6_S6_rs.sum.txt --novel-splicesite-outfile mapped_reads/S6_S6_rs.splicesites -x mapped_reads/indices/talens_100ksub_superT -1 /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S6_S6_rs_R1_subsample.fastq.gz -2 /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S6_S6_rs_R2_subsample.fastq.gz | samtools view -Su | samtools sort - -o mapped_reads/S6_S6_rs.sorted.bam 
+samtools index mapped_reads/S6_S6_rs.sorted.bam mapped_reads/S6_S6_rs.sorted.bam.bai 
+
+[Mon Dec 17 15:04:09 2018]
+rule map_reads_to_superT:
+    input: mapped_reads/indices/talens_100ksub_superT.1.ht2l, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/1_21_hemi_PFC_S16_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/1_21_hemi_PFC_S16_R2_subsample.fastq.gz
+    output: mapped_reads/1_21_hemi_PFC_S16.sum.txt, mapped_reads/1_21_hemi_PFC_S16.splicesites, mapped_reads/1_21_hemi_PFC_S16.sorted.bam, mapped_reads/1_21_hemi_PFC_S16.sorted.bam.bai
+    jobid: 9
+    benchmark: mapped_reads/121_21_hemi_PFC_S16.times.tab
+    reason: Missing output files: mapped_reads/1_21_hemi_PFC_S16.splicesites, mapped_reads/1_21_hemi_PFC_S16.sorted.bam, mapped_reads/1_21_hemi_PFC_S16.sum.txt; Input files updated by another job: mapped_reads/indices/talens_100ksub_superT.1.ht2l
+    wildcards: sample=1_21_hemi_PFC_S16
+
+hisat2 --pen-noncansplice 0 --threads 1 --summary-file mapped_reads/1_21_hemi_PFC_S16.sum.txt --novel-splicesite-outfile mapped_reads/1_21_hemi_PFC_S16.splicesites -x mapped_reads/indices/talens_100ksub_superT -1 /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/1_21_hemi_PFC_S16_R1_subsample.fastq.gz -2 /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/1_21_hemi_PFC_S16_R2_subsample.fastq.gz | samtools view -Su | samtools sort - -o mapped_reads/1_21_hemi_PFC_S16.sorted.bam 
+samtools index mapped_reads/1_21_hemi_PFC_S16.sorted.bam mapped_reads/1_21_hemi_PFC_S16.sorted.bam.bai 
+
+[Mon Dec 17 15:04:09 2018]
+rule map_reads_to_superT:
+    input: mapped_reads/indices/talens_100ksub_superT.1.ht2l, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-75hemi_S4_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-75hemi_S4_R2_subsample.fastq.gz
+    output: mapped_reads/NMG3-75hemi_S4.sum.txt, mapped_reads/NMG3-75hemi_S4.splicesites, mapped_reads/NMG3-75hemi_S4.sorted.bam, mapped_reads/NMG3-75hemi_S4.sorted.bam.bai
+    jobid: 37
+    benchmark: mapped_reads/12NMG3-75hemi_S4.times.tab
+    reason: Missing output files: mapped_reads/NMG3-75hemi_S4.sorted.bam, mapped_reads/NMG3-75hemi_S4.splicesites, mapped_reads/NMG3-75hemi_S4.sum.txt; Input files updated by another job: mapped_reads/indices/talens_100ksub_superT.1.ht2l
+    wildcards: sample=NMG3-75hemi_S4
+
+hisat2 --pen-noncansplice 0 --threads 1 --summary-file mapped_reads/NMG3-75hemi_S4.sum.txt --novel-splicesite-outfile mapped_reads/NMG3-75hemi_S4.splicesites -x mapped_reads/indices/talens_100ksub_superT -1 /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-75hemi_S4_R1_subsample.fastq.gz -2 /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-75hemi_S4_R2_subsample.fastq.gz | samtools view -Su | samtools sort - -o mapped_reads/NMG3-75hemi_S4.sorted.bam 
+samtools index mapped_reads/NMG3-75hemi_S4.sorted.bam mapped_reads/NMG3-75hemi_S4.sorted.bam.bai 
+
+[Mon Dec 17 15:04:09 2018]
+rule map_reads_to_superT:
+    input: mapped_reads/indices/talens_100ksub_superT.1.ht2l, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_25_wt_OB_S8_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_25_wt_OB_S8_R2_subsample.fastq.gz
+    output: mapped_reads/10_25_wt_OB_S8.sum.txt, mapped_reads/10_25_wt_OB_S8.splicesites, mapped_reads/10_25_wt_OB_S8.sorted.bam, mapped_reads/10_25_wt_OB_S8.sorted.bam.bai
+    jobid: 23
+    benchmark: mapped_reads/1210_25_wt_OB_S8.times.tab
+    reason: Missing output files: mapped_reads/10_25_wt_OB_S8.splicesites, mapped_reads/10_25_wt_OB_S8.sorted.bam, mapped_reads/10_25_wt_OB_S8.sum.txt; Input files updated by another job: mapped_reads/indices/talens_100ksub_superT.1.ht2l
+    wildcards: sample=10_25_wt_OB_S8
+
+hisat2 --pen-noncansplice 0 --threads 1 --summary-file mapped_reads/10_25_wt_OB_S8.sum.txt --novel-splicesite-outfile mapped_reads/10_25_wt_OB_S8.splicesites -x mapped_reads/indices/talens_100ksub_superT -1 /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_25_wt_OB_S8_R1_subsample.fastq.gz -2 /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_25_wt_OB_S8_R2_subsample.fastq.gz | samtools view -Su | samtools sort - -o mapped_reads/10_25_wt_OB_S8.sorted.bam 
+samtools index mapped_reads/10_25_wt_OB_S8.sorted.bam mapped_reads/10_25_wt_OB_S8.sorted.bam.bai 
+
+[Mon Dec 17 15:04:09 2018]
+rule map_reads_to_superT:
+    input: mapped_reads/indices/talens_100ksub_superT.1.ht2l, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S1_S1_rs_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S1_S1_rs_R2_subsample.fastq.gz
+    output: mapped_reads/S1_S1_rs.sum.txt, mapped_reads/S1_S1_rs.splicesites, mapped_reads/S1_S1_rs.sorted.bam, mapped_reads/S1_S1_rs.sorted.bam.bai
+    jobid: 19
+    benchmark: mapped_reads/12S1_S1_rs.times.tab
+    reason: Missing output files: mapped_reads/S1_S1_rs.sum.txt, mapped_reads/S1_S1_rs.splicesites, mapped_reads/S1_S1_rs.sorted.bam; Input files updated by another job: mapped_reads/indices/talens_100ksub_superT.1.ht2l
+    wildcards: sample=S1_S1_rs
+
+hisat2 --pen-noncansplice 0 --threads 1 --summary-file mapped_reads/S1_S1_rs.sum.txt --novel-splicesite-outfile mapped_reads/S1_S1_rs.splicesites -x mapped_reads/indices/talens_100ksub_superT -1 /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S1_S1_rs_R1_subsample.fastq.gz -2 /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S1_S1_rs_R2_subsample.fastq.gz | samtools view -Su | samtools sort - -o mapped_reads/S1_S1_rs.sorted.bam 
+samtools index mapped_reads/S1_S1_rs.sorted.bam mapped_reads/S1_S1_rs.sorted.bam.bai 
+
+[Mon Dec 17 15:04:09 2018]
+rule map_reads_to_superT:
+    input: mapped_reads/indices/talens_100ksub_superT.1.ht2l, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/1_21_hemi_HIPPO_S4_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/1_21_hemi_HIPPO_S4_R2_subsample.fastq.gz
+    output: mapped_reads/1_21_hemi_HIPPO_S4.sum.txt, mapped_reads/1_21_hemi_HIPPO_S4.splicesites, mapped_reads/1_21_hemi_HIPPO_S4.sorted.bam, mapped_reads/1_21_hemi_HIPPO_S4.sorted.bam.bai
+    jobid: 4
+    benchmark: mapped_reads/121_21_hemi_HIPPO_S4.times.tab
+    reason: Missing output files: mapped_reads/1_21_hemi_HIPPO_S4.sum.txt, mapped_reads/1_21_hemi_HIPPO_S4.sorted.bam, mapped_reads/1_21_hemi_HIPPO_S4.splicesites; Input files updated by another job: mapped_reads/indices/talens_100ksub_superT.1.ht2l
+    wildcards: sample=1_21_hemi_HIPPO_S4
+
+hisat2 --pen-noncansplice 0 --threads 1 --summary-file mapped_reads/1_21_hemi_HIPPO_S4.sum.txt --novel-splicesite-outfile mapped_reads/1_21_hemi_HIPPO_S4.splicesites -x mapped_reads/indices/talens_100ksub_superT -1 /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/1_21_hemi_HIPPO_S4_R1_subsample.fastq.gz -2 /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/1_21_hemi_HIPPO_S4_R2_subsample.fastq.gz | samtools view -Su | samtools sort - -o mapped_reads/1_21_hemi_HIPPO_S4.sorted.bam 
+samtools index mapped_reads/1_21_hemi_HIPPO_S4.sorted.bam mapped_reads/1_21_hemi_HIPPO_S4.sorted.bam.bai 
+
+[Mon Dec 17 15:04:09 2018]
+rule map_reads_to_superT:
+    input: mapped_reads/indices/talens_100ksub_superT.1.ht2l, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/1_12_wt_HIPPO_S3_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/1_12_wt_HIPPO_S3_R2_subsample.fastq.gz
+    output: mapped_reads/1_12_wt_HIPPO_S3.sum.txt, mapped_reads/1_12_wt_HIPPO_S3.splicesites, mapped_reads/1_12_wt_HIPPO_S3.sorted.bam, mapped_reads/1_12_wt_HIPPO_S3.sorted.bam.bai
+    jobid: 36
+    benchmark: mapped_reads/121_12_wt_HIPPO_S3.times.tab
+    reason: Missing output files: mapped_reads/1_12_wt_HIPPO_S3.splicesites, mapped_reads/1_12_wt_HIPPO_S3.sum.txt, mapped_reads/1_12_wt_HIPPO_S3.sorted.bam; Input files updated by another job: mapped_reads/indices/talens_100ksub_superT.1.ht2l
+    wildcards: sample=1_12_wt_HIPPO_S3
+
+hisat2 --pen-noncansplice 0 --threads 1 --summary-file mapped_reads/1_12_wt_HIPPO_S3.sum.txt --novel-splicesite-outfile mapped_reads/1_12_wt_HIPPO_S3.splicesites -x mapped_reads/indices/talens_100ksub_superT -1 /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/1_12_wt_HIPPO_S3_R1_subsample.fastq.gz -2 /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/1_12_wt_HIPPO_S3_R2_subsample.fastq.gz | samtools view -Su | samtools sort - -o mapped_reads/1_12_wt_HIPPO_S3.sorted.bam 
+samtools index mapped_reads/1_12_wt_HIPPO_S3.sorted.bam mapped_reads/1_12_wt_HIPPO_S3.sorted.bam.bai 
+
+[Mon Dec 17 15:04:09 2018]
+rule map_reads_to_superT:
+    input: mapped_reads/indices/talens_100ksub_superT.1.ht2l, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S4_S4_rs_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S4_S4_rs_R2_subsample.fastq.gz
+    output: mapped_reads/S4_S4_rs.sum.txt, mapped_reads/S4_S4_rs.splicesites, mapped_reads/S4_S4_rs.sorted.bam, mapped_reads/S4_S4_rs.sorted.bam.bai
+    jobid: 30
+    benchmark: mapped_reads/12S4_S4_rs.times.tab
+    reason: Missing output files: mapped_reads/S4_S4_rs.sorted.bam, mapped_reads/S4_S4_rs.splicesites, mapped_reads/S4_S4_rs.sum.txt; Input files updated by another job: mapped_reads/indices/talens_100ksub_superT.1.ht2l
+    wildcards: sample=S4_S4_rs
+
+hisat2 --pen-noncansplice 0 --threads 1 --summary-file mapped_reads/S4_S4_rs.sum.txt --novel-splicesite-outfile mapped_reads/S4_S4_rs.splicesites -x mapped_reads/indices/talens_100ksub_superT -1 /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S4_S4_rs_R1_subsample.fastq.gz -2 /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S4_S4_rs_R2_subsample.fastq.gz | samtools view -Su | samtools sort - -o mapped_reads/S4_S4_rs.sorted.bam 
+samtools index mapped_reads/S4_S4_rs.sorted.bam mapped_reads/S4_S4_rs.sorted.bam.bai 
+
+[Mon Dec 17 15:04:09 2018]
+rule map_reads_to_superT:
+    input: mapped_reads/indices/talens_100ksub_superT.1.ht2l, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_35_wt_HIPPO_S1_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_35_wt_HIPPO_S1_R2_subsample.fastq.gz
+    output: mapped_reads/10_35_wt_HIPPO_S1.sum.txt, mapped_reads/10_35_wt_HIPPO_S1.splicesites, mapped_reads/10_35_wt_HIPPO_S1.sorted.bam, mapped_reads/10_35_wt_HIPPO_S1.sorted.bam.bai
+    jobid: 2
+    benchmark: mapped_reads/1210_35_wt_HIPPO_S1.times.tab
+    reason: Missing output files: mapped_reads/10_35_wt_HIPPO_S1.sorted.bam, mapped_reads/10_35_wt_HIPPO_S1.splicesites, mapped_reads/10_35_wt_HIPPO_S1.sum.txt; Input files updated by another job: mapped_reads/indices/talens_100ksub_superT.1.ht2l
+    wildcards: sample=10_35_wt_HIPPO_S1
+
+hisat2 --pen-noncansplice 0 --threads 1 --summary-file mapped_reads/10_35_wt_HIPPO_S1.sum.txt --novel-splicesite-outfile mapped_reads/10_35_wt_HIPPO_S1.splicesites -x mapped_reads/indices/talens_100ksub_superT -1 /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_35_wt_HIPPO_S1_R1_subsample.fastq.gz -2 /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_35_wt_HIPPO_S1_R2_subsample.fastq.gz | samtools view -Su | samtools sort - -o mapped_reads/10_35_wt_HIPPO_S1.sorted.bam 
+samtools index mapped_reads/10_35_wt_HIPPO_S1.sorted.bam mapped_reads/10_35_wt_HIPPO_S1.sorted.bam.bai 
+
+[Mon Dec 17 15:04:09 2018]
+rule map_reads_to_superT:
+    input: mapped_reads/indices/talens_100ksub_superT.1.ht2l, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/1_12_wt_PFC_S15_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/1_12_wt_PFC_S15_R2_subsample.fastq.gz
+    output: mapped_reads/1_12_wt_PFC_S15.sum.txt, mapped_reads/1_12_wt_PFC_S15.splicesites, mapped_reads/1_12_wt_PFC_S15.sorted.bam, mapped_reads/1_12_wt_PFC_S15.sorted.bam.bai
+    jobid: 32
+    benchmark: mapped_reads/121_12_wt_PFC_S15.times.tab
+    reason: Missing output files: mapped_reads/1_12_wt_PFC_S15.splicesites, mapped_reads/1_12_wt_PFC_S15.sum.txt, mapped_reads/1_12_wt_PFC_S15.sorted.bam; Input files updated by another job: mapped_reads/indices/talens_100ksub_superT.1.ht2l
+    wildcards: sample=1_12_wt_PFC_S15
+
+hisat2 --pen-noncansplice 0 --threads 1 --summary-file mapped_reads/1_12_wt_PFC_S15.sum.txt --novel-splicesite-outfile mapped_reads/1_12_wt_PFC_S15.splicesites -x mapped_reads/indices/talens_100ksub_superT -1 /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/1_12_wt_PFC_S15_R1_subsample.fastq.gz -2 /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/1_12_wt_PFC_S15_R2_subsample.fastq.gz | samtools view -Su | samtools sort - -o mapped_reads/1_12_wt_PFC_S15.sorted.bam 
+samtools index mapped_reads/1_12_wt_PFC_S15.sorted.bam mapped_reads/1_12_wt_PFC_S15.sorted.bam.bai 
+
+[Mon Dec 17 15:04:09 2018]
+rule map_reads_to_superT:
+    input: mapped_reads/indices/talens_100ksub_superT.1.ht2l, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_26_hemi_OB_S12_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_26_hemi_OB_S12_R2_subsample.fastq.gz
+    output: mapped_reads/10_26_hemi_OB_S12.sum.txt, mapped_reads/10_26_hemi_OB_S12.splicesites, mapped_reads/10_26_hemi_OB_S12.sorted.bam, mapped_reads/10_26_hemi_OB_S12.sorted.bam.bai
+    jobid: 34
+    benchmark: mapped_reads/1210_26_hemi_OB_S12.times.tab
+    reason: Missing output files: mapped_reads/10_26_hemi_OB_S12.splicesites, mapped_reads/10_26_hemi_OB_S12.sorted.bam, mapped_reads/10_26_hemi_OB_S12.sum.txt; Input files updated by another job: mapped_reads/indices/talens_100ksub_superT.1.ht2l
+    wildcards: sample=10_26_hemi_OB_S12
+
+hisat2 --pen-noncansplice 0 --threads 1 --summary-file mapped_reads/10_26_hemi_OB_S12.sum.txt --novel-splicesite-outfile mapped_reads/10_26_hemi_OB_S12.splicesites -x mapped_reads/indices/talens_100ksub_superT -1 /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_26_hemi_OB_S12_R1_subsample.fastq.gz -2 /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_26_hemi_OB_S12_R2_subsample.fastq.gz | samtools view -Su | samtools sort - -o mapped_reads/10_26_hemi_OB_S12.sorted.bam 
+samtools index mapped_reads/10_26_hemi_OB_S12.sorted.bam mapped_reads/10_26_hemi_OB_S12.sorted.bam.bai 
+
+[Mon Dec 17 15:04:09 2018]
+rule map_reads_to_superT:
+    input: mapped_reads/indices/talens_100ksub_superT.1.ht2l, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-60hemi_S1_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-60hemi_S1_R2_subsample.fastq.gz
+    output: mapped_reads/NMG3-60hemi_S1.sum.txt, mapped_reads/NMG3-60hemi_S1.splicesites, mapped_reads/NMG3-60hemi_S1.sorted.bam, mapped_reads/NMG3-60hemi_S1.sorted.bam.bai
+    jobid: 21
+    benchmark: mapped_reads/12NMG3-60hemi_S1.times.tab
+    reason: Missing output files: mapped_reads/NMG3-60hemi_S1.sorted.bam, mapped_reads/NMG3-60hemi_S1.sum.txt, mapped_reads/NMG3-60hemi_S1.splicesites; Input files updated by another job: mapped_reads/indices/talens_100ksub_superT.1.ht2l
+    wildcards: sample=NMG3-60hemi_S1
+
+hisat2 --pen-noncansplice 0 --threads 1 --summary-file mapped_reads/NMG3-60hemi_S1.sum.txt --novel-splicesite-outfile mapped_reads/NMG3-60hemi_S1.splicesites -x mapped_reads/indices/talens_100ksub_superT -1 /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-60hemi_S1_R1_subsample.fastq.gz -2 /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-60hemi_S1_R2_subsample.fastq.gz | samtools view -Su | samtools sort - -o mapped_reads/NMG3-60hemi_S1.sorted.bam 
+samtools index mapped_reads/NMG3-60hemi_S1.sorted.bam mapped_reads/NMG3-60hemi_S1.sorted.bam.bai 
+
+[Mon Dec 17 15:04:09 2018]
+rule map_reads_to_superT:
+    input: mapped_reads/indices/talens_100ksub_superT.1.ht2l, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_27_hemi_PFC_S17_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_27_hemi_PFC_S17_R2_subsample.fastq.gz
+    output: mapped_reads/10_27_hemi_PFC_S17.sum.txt, mapped_reads/10_27_hemi_PFC_S17.splicesites, mapped_reads/10_27_hemi_PFC_S17.sorted.bam, mapped_reads/10_27_hemi_PFC_S17.sorted.bam.bai
+    jobid: 15
+    benchmark: mapped_reads/1210_27_hemi_PFC_S17.times.tab
+    reason: Missing output files: mapped_reads/10_27_hemi_PFC_S17.sum.txt, mapped_reads/10_27_hemi_PFC_S17.splicesites, mapped_reads/10_27_hemi_PFC_S17.sorted.bam; Input files updated by another job: mapped_reads/indices/talens_100ksub_superT.1.ht2l
+    wildcards: sample=10_27_hemi_PFC_S17
+
+hisat2 --pen-noncansplice 0 --threads 1 --summary-file mapped_reads/10_27_hemi_PFC_S17.sum.txt --novel-splicesite-outfile mapped_reads/10_27_hemi_PFC_S17.splicesites -x mapped_reads/indices/talens_100ksub_superT -1 /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_27_hemi_PFC_S17_R1_subsample.fastq.gz -2 /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_27_hemi_PFC_S17_R2_subsample.fastq.gz | samtools view -Su | samtools sort - -o mapped_reads/10_27_hemi_PFC_S17.sorted.bam 
+samtools index mapped_reads/10_27_hemi_PFC_S17.sorted.bam mapped_reads/10_27_hemi_PFC_S17.sorted.bam.bai 
+
+[Mon Dec 17 15:04:09 2018]
+rule map_reads_to_superT:
+    input: mapped_reads/indices/talens_100ksub_superT.1.ht2l, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_35_wt_PFC_S13_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_35_wt_PFC_S13_R2_subsample.fastq.gz
+    output: mapped_reads/10_35_wt_PFC_S13.sum.txt, mapped_reads/10_35_wt_PFC_S13.splicesites, mapped_reads/10_35_wt_PFC_S13.sorted.bam, mapped_reads/10_35_wt_PFC_S13.sorted.bam.bai
+    jobid: 1
+    benchmark: mapped_reads/1210_35_wt_PFC_S13.times.tab
+    reason: Missing output files: mapped_reads/10_35_wt_PFC_S13.sum.txt, mapped_reads/10_35_wt_PFC_S13.sorted.bam, mapped_reads/10_35_wt_PFC_S13.splicesites; Input files updated by another job: mapped_reads/indices/talens_100ksub_superT.1.ht2l
+    wildcards: sample=10_35_wt_PFC_S13
+
+hisat2 --pen-noncansplice 0 --threads 1 --summary-file mapped_reads/10_35_wt_PFC_S13.sum.txt --novel-splicesite-outfile mapped_reads/10_35_wt_PFC_S13.splicesites -x mapped_reads/indices/talens_100ksub_superT -1 /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_35_wt_PFC_S13_R1_subsample.fastq.gz -2 /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_35_wt_PFC_S13_R2_subsample.fastq.gz | samtools view -Su | samtools sort - -o mapped_reads/10_35_wt_PFC_S13.sorted.bam 
+samtools index mapped_reads/10_35_wt_PFC_S13.sorted.bam mapped_reads/10_35_wt_PFC_S13.sorted.bam.bai 
+
+[Mon Dec 17 15:04:09 2018]
+rule map_reads_to_superT:
+    input: mapped_reads/indices/talens_100ksub_superT.1.ht2l, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-77hemi_S6_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-77hemi_S6_R2_subsample.fastq.gz
+    output: mapped_reads/NMG3-77hemi_S6.sum.txt, mapped_reads/NMG3-77hemi_S6.splicesites, mapped_reads/NMG3-77hemi_S6.sorted.bam, mapped_reads/NMG3-77hemi_S6.sorted.bam.bai
+    jobid: 16
+    benchmark: mapped_reads/12NMG3-77hemi_S6.times.tab
+    reason: Missing output files: mapped_reads/NMG3-77hemi_S6.splicesites, mapped_reads/NMG3-77hemi_S6.sum.txt, mapped_reads/NMG3-77hemi_S6.sorted.bam; Input files updated by another job: mapped_reads/indices/talens_100ksub_superT.1.ht2l
+    wildcards: sample=NMG3-77hemi_S6
+
+hisat2 --pen-noncansplice 0 --threads 1 --summary-file mapped_reads/NMG3-77hemi_S6.sum.txt --novel-splicesite-outfile mapped_reads/NMG3-77hemi_S6.splicesites -x mapped_reads/indices/talens_100ksub_superT -1 /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-77hemi_S6_R1_subsample.fastq.gz -2 /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-77hemi_S6_R2_subsample.fastq.gz | samtools view -Su | samtools sort - -o mapped_reads/NMG3-77hemi_S6.sorted.bam 
+samtools index mapped_reads/NMG3-77hemi_S6.sorted.bam mapped_reads/NMG3-77hemi_S6.sorted.bam.bai 
+
+[Mon Dec 17 15:04:09 2018]
+rule map_reads_to_superT:
+    input: mapped_reads/indices/talens_100ksub_superT.1.ht2l, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-76wt_S5_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-76wt_S5_R2_subsample.fastq.gz
+    output: mapped_reads/NMG3-76wt_S5.sum.txt, mapped_reads/NMG3-76wt_S5.splicesites, mapped_reads/NMG3-76wt_S5.sorted.bam, mapped_reads/NMG3-76wt_S5.sorted.bam.bai
+    jobid: 29
+    benchmark: mapped_reads/12NMG3-76wt_S5.times.tab
+    reason: Missing output files: mapped_reads/NMG3-76wt_S5.splicesites, mapped_reads/NMG3-76wt_S5.sorted.bam, mapped_reads/NMG3-76wt_S5.sum.txt; Input files updated by another job: mapped_reads/indices/talens_100ksub_superT.1.ht2l
+    wildcards: sample=NMG3-76wt_S5
+
+hisat2 --pen-noncansplice 0 --threads 1 --summary-file mapped_reads/NMG3-76wt_S5.sum.txt --novel-splicesite-outfile mapped_reads/NMG3-76wt_S5.splicesites -x mapped_reads/indices/talens_100ksub_superT -1 /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-76wt_S5_R1_subsample.fastq.gz -2 /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-76wt_S5_R2_subsample.fastq.gz | samtools view -Su | samtools sort - -o mapped_reads/NMG3-76wt_S5.sorted.bam 
+samtools index mapped_reads/NMG3-76wt_S5.sorted.bam mapped_reads/NMG3-76wt_S5.sorted.bam.bai 
+
+[Mon Dec 17 15:04:09 2018]
+rule map_reads_to_superT:
+    input: mapped_reads/indices/talens_100ksub_superT.1.ht2l, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_13_wt_OB_S7_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_13_wt_OB_S7_R2_subsample.fastq.gz
+    output: mapped_reads/10_13_wt_OB_S7.sum.txt, mapped_reads/10_13_wt_OB_S7.splicesites, mapped_reads/10_13_wt_OB_S7.sorted.bam, mapped_reads/10_13_wt_OB_S7.sorted.bam.bai
+    jobid: 3
+    benchmark: mapped_reads/1210_13_wt_OB_S7.times.tab
+    reason: Missing output files: mapped_reads/10_13_wt_OB_S7.sum.txt, mapped_reads/10_13_wt_OB_S7.sorted.bam, mapped_reads/10_13_wt_OB_S7.splicesites; Input files updated by another job: mapped_reads/indices/talens_100ksub_superT.1.ht2l
+    wildcards: sample=10_13_wt_OB_S7
+
+hisat2 --pen-noncansplice 0 --threads 1 --summary-file mapped_reads/10_13_wt_OB_S7.sum.txt --novel-splicesite-outfile mapped_reads/10_13_wt_OB_S7.splicesites -x mapped_reads/indices/talens_100ksub_superT -1 /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_13_wt_OB_S7_R1_subsample.fastq.gz -2 /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_13_wt_OB_S7_R2_subsample.fastq.gz | samtools view -Su | samtools sort - -o mapped_reads/10_13_wt_OB_S7.sorted.bam 
+samtools index mapped_reads/10_13_wt_OB_S7.sorted.bam mapped_reads/10_13_wt_OB_S7.sorted.bam.bai 
+
+[Mon Dec 17 15:04:09 2018]
+rule map_reads_to_superT:
+    input: mapped_reads/indices/talens_100ksub_superT.1.ht2l, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_9_hemi_OB_S10_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_9_hemi_OB_S10_R2_subsample.fastq.gz
+    output: mapped_reads/10_9_hemi_OB_S10.sum.txt, mapped_reads/10_9_hemi_OB_S10.splicesites, mapped_reads/10_9_hemi_OB_S10.sorted.bam, mapped_reads/10_9_hemi_OB_S10.sorted.bam.bai
+    jobid: 33
+    benchmark: mapped_reads/1210_9_hemi_OB_S10.times.tab
+    reason: Missing output files: mapped_reads/10_9_hemi_OB_S10.sum.txt, mapped_reads/10_9_hemi_OB_S10.splicesites, mapped_reads/10_9_hemi_OB_S10.sorted.bam; Input files updated by another job: mapped_reads/indices/talens_100ksub_superT.1.ht2l
+    wildcards: sample=10_9_hemi_OB_S10
+
+hisat2 --pen-noncansplice 0 --threads 1 --summary-file mapped_reads/10_9_hemi_OB_S10.sum.txt --novel-splicesite-outfile mapped_reads/10_9_hemi_OB_S10.splicesites -x mapped_reads/indices/talens_100ksub_superT -1 /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_9_hemi_OB_S10_R1_subsample.fastq.gz -2 /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_9_hemi_OB_S10_R2_subsample.fastq.gz | samtools view -Su | samtools sort - -o mapped_reads/10_9_hemi_OB_S10.sorted.bam 
+samtools index mapped_reads/10_9_hemi_OB_S10.sorted.bam mapped_reads/10_9_hemi_OB_S10.sorted.bam.bai 
+
+[Mon Dec 17 15:04:09 2018]
+rule map_reads_to_superT:
+    input: mapped_reads/indices/talens_100ksub_superT.1.ht2l, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S2_S2_rs_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S2_S2_rs_R2_subsample.fastq.gz
+    output: mapped_reads/S2_S2_rs.sum.txt, mapped_reads/S2_S2_rs.splicesites, mapped_reads/S2_S2_rs.sorted.bam, mapped_reads/S2_S2_rs.sorted.bam.bai
+    jobid: 25
+    benchmark: mapped_reads/12S2_S2_rs.times.tab
+    reason: Missing output files: mapped_reads/S2_S2_rs.sorted.bam, mapped_reads/S2_S2_rs.sum.txt, mapped_reads/S2_S2_rs.splicesites; Input files updated by another job: mapped_reads/indices/talens_100ksub_superT.1.ht2l
+    wildcards: sample=S2_S2_rs
+
+hisat2 --pen-noncansplice 0 --threads 1 --summary-file mapped_reads/S2_S2_rs.sum.txt --novel-splicesite-outfile mapped_reads/S2_S2_rs.splicesites -x mapped_reads/indices/talens_100ksub_superT -1 /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S2_S2_rs_R1_subsample.fastq.gz -2 /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S2_S2_rs_R2_subsample.fastq.gz | samtools view -Su | samtools sort - -o mapped_reads/S2_S2_rs.sorted.bam 
+samtools index mapped_reads/S2_S2_rs.sorted.bam mapped_reads/S2_S2_rs.sorted.bam.bai 
+
+[Mon Dec 17 15:04:09 2018]
+rule map_reads_to_superT:
+    input: mapped_reads/indices/talens_100ksub_superT.1.ht2l, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-74wt_S3_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-74wt_S3_R2_subsample.fastq.gz
+    output: mapped_reads/NMG3-74wt_S3.sum.txt, mapped_reads/NMG3-74wt_S3.splicesites, mapped_reads/NMG3-74wt_S3.sorted.bam, mapped_reads/NMG3-74wt_S3.sorted.bam.bai
+    jobid: 6
+    benchmark: mapped_reads/12NMG3-74wt_S3.times.tab
+    reason: Missing output files: mapped_reads/NMG3-74wt_S3.sorted.bam, mapped_reads/NMG3-74wt_S3.splicesites, mapped_reads/NMG3-74wt_S3.sum.txt; Input files updated by another job: mapped_reads/indices/talens_100ksub_superT.1.ht2l
+    wildcards: sample=NMG3-74wt_S3
+
+hisat2 --pen-noncansplice 0 --threads 1 --summary-file mapped_reads/NMG3-74wt_S3.sum.txt --novel-splicesite-outfile mapped_reads/NMG3-74wt_S3.splicesites -x mapped_reads/indices/talens_100ksub_superT -1 /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-74wt_S3_R1_subsample.fastq.gz -2 /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/NMG3-74wt_S3_R2_subsample.fastq.gz | samtools view -Su | samtools sort - -o mapped_reads/NMG3-74wt_S3.sorted.bam 
+samtools index mapped_reads/NMG3-74wt_S3.sorted.bam mapped_reads/NMG3-74wt_S3.sorted.bam.bai 
+
+[Mon Dec 17 15:04:09 2018]
+rule map_reads_to_superT:
+    input: mapped_reads/indices/talens_100ksub_superT.1.ht2l, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_42_wt_PFC_S14_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_42_wt_PFC_S14_R2_subsample.fastq.gz
+    output: mapped_reads/10_42_wt_PFC_S14.sum.txt, mapped_reads/10_42_wt_PFC_S14.splicesites, mapped_reads/10_42_wt_PFC_S14.sorted.bam, mapped_reads/10_42_wt_PFC_S14.sorted.bam.bai
+    jobid: 26
+    benchmark: mapped_reads/1210_42_wt_PFC_S14.times.tab
+    reason: Missing output files: mapped_reads/10_42_wt_PFC_S14.splicesites, mapped_reads/10_42_wt_PFC_S14.sum.txt, mapped_reads/10_42_wt_PFC_S14.sorted.bam; Input files updated by another job: mapped_reads/indices/talens_100ksub_superT.1.ht2l
+    wildcards: sample=10_42_wt_PFC_S14
+
+hisat2 --pen-noncansplice 0 --threads 1 --summary-file mapped_reads/10_42_wt_PFC_S14.sum.txt --novel-splicesite-outfile mapped_reads/10_42_wt_PFC_S14.splicesites -x mapped_reads/indices/talens_100ksub_superT -1 /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_42_wt_PFC_S14_R1_subsample.fastq.gz -2 /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_42_wt_PFC_S14_R2_subsample.fastq.gz | samtools view -Su | samtools sort - -o mapped_reads/10_42_wt_PFC_S14.sorted.bam 
+samtools index mapped_reads/10_42_wt_PFC_S14.sorted.bam mapped_reads/10_42_wt_PFC_S14.sorted.bam.bai 
+
+[Mon Dec 17 15:04:09 2018]
+rule map_reads_to_superT:
+    input: mapped_reads/indices/talens_100ksub_superT.1.ht2l, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_28_hemi_HIPPO_S5_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_28_hemi_HIPPO_S5_R2_subsample.fastq.gz
+    output: mapped_reads/10_28_hemi_HIPPO_S5.sum.txt, mapped_reads/10_28_hemi_HIPPO_S5.splicesites, mapped_reads/10_28_hemi_HIPPO_S5.sorted.bam, mapped_reads/10_28_hemi_HIPPO_S5.sorted.bam.bai
+    jobid: 10
+    benchmark: mapped_reads/1210_28_hemi_HIPPO_S5.times.tab
+    reason: Missing output files: mapped_reads/10_28_hemi_HIPPO_S5.splicesites, mapped_reads/10_28_hemi_HIPPO_S5.sum.txt, mapped_reads/10_28_hemi_HIPPO_S5.sorted.bam; Input files updated by another job: mapped_reads/indices/talens_100ksub_superT.1.ht2l
+    wildcards: sample=10_28_hemi_HIPPO_S5
+
+hisat2 --pen-noncansplice 0 --threads 1 --summary-file mapped_reads/10_28_hemi_HIPPO_S5.sum.txt --novel-splicesite-outfile mapped_reads/10_28_hemi_HIPPO_S5.splicesites -x mapped_reads/indices/talens_100ksub_superT -1 /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_28_hemi_HIPPO_S5_R1_subsample.fastq.gz -2 /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_28_hemi_HIPPO_S5_R2_subsample.fastq.gz | samtools view -Su | samtools sort - -o mapped_reads/10_28_hemi_HIPPO_S5.sorted.bam 
+samtools index mapped_reads/10_28_hemi_HIPPO_S5.sorted.bam mapped_reads/10_28_hemi_HIPPO_S5.sorted.bam.bai 
+
+[Mon Dec 17 15:04:09 2018]
+rule map_reads_to_superT:
+    input: mapped_reads/indices/talens_100ksub_superT.1.ht2l, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_42_wt_HIPPO_S2_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_42_wt_HIPPO_S2_R2_subsample.fastq.gz
+    output: mapped_reads/10_42_wt_HIPPO_S2.sum.txt, mapped_reads/10_42_wt_HIPPO_S2.splicesites, mapped_reads/10_42_wt_HIPPO_S2.sorted.bam, mapped_reads/10_42_wt_HIPPO_S2.sorted.bam.bai
+    jobid: 39
+    benchmark: mapped_reads/1210_42_wt_HIPPO_S2.times.tab
+    reason: Missing output files: mapped_reads/10_42_wt_HIPPO_S2.sum.txt, mapped_reads/10_42_wt_HIPPO_S2.splicesites, mapped_reads/10_42_wt_HIPPO_S2.sorted.bam; Input files updated by another job: mapped_reads/indices/talens_100ksub_superT.1.ht2l
+    wildcards: sample=10_42_wt_HIPPO_S2
+
+hisat2 --pen-noncansplice 0 --threads 1 --summary-file mapped_reads/10_42_wt_HIPPO_S2.sum.txt --novel-splicesite-outfile mapped_reads/10_42_wt_HIPPO_S2.splicesites -x mapped_reads/indices/talens_100ksub_superT -1 /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_42_wt_HIPPO_S2_R1_subsample.fastq.gz -2 /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_42_wt_HIPPO_S2_R2_subsample.fastq.gz | samtools view -Su | samtools sort - -o mapped_reads/10_42_wt_HIPPO_S2.sorted.bam 
+samtools index mapped_reads/10_42_wt_HIPPO_S2.sorted.bam mapped_reads/10_42_wt_HIPPO_S2.sorted.bam.bai 
+
+[Mon Dec 17 15:04:09 2018]
+rule map_reads_to_superT:
+    input: mapped_reads/indices/talens_100ksub_superT.1.ht2l, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S3_S3_rs_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S3_S3_rs_R2_subsample.fastq.gz
+    output: mapped_reads/S3_S3_rs.sum.txt, mapped_reads/S3_S3_rs.splicesites, mapped_reads/S3_S3_rs.sorted.bam, mapped_reads/S3_S3_rs.sorted.bam.bai
+    jobid: 20
+    benchmark: mapped_reads/12S3_S3_rs.times.tab
+    reason: Missing output files: mapped_reads/S3_S3_rs.sum.txt, mapped_reads/S3_S3_rs.sorted.bam, mapped_reads/S3_S3_rs.splicesites; Input files updated by another job: mapped_reads/indices/talens_100ksub_superT.1.ht2l
+    wildcards: sample=S3_S3_rs
+
+hisat2 --pen-noncansplice 0 --threads 1 --summary-file mapped_reads/S3_S3_rs.sum.txt --novel-splicesite-outfile mapped_reads/S3_S3_rs.splicesites -x mapped_reads/indices/talens_100ksub_superT -1 /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S3_S3_rs_R1_subsample.fastq.gz -2 /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S3_S3_rs_R2_subsample.fastq.gz | samtools view -Su | samtools sort - -o mapped_reads/S3_S3_rs.sorted.bam 
+samtools index mapped_reads/S3_S3_rs.sorted.bam mapped_reads/S3_S3_rs.sorted.bam.bai 
+
+[Mon Dec 17 15:04:09 2018]
+rule map_reads_to_superT:
+    input: mapped_reads/indices/talens_100ksub_superT.1.ht2l, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_16_hemi_HIPPO_S6_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_16_hemi_HIPPO_S6_R2_subsample.fastq.gz
+    output: mapped_reads/10_16_hemi_HIPPO_S6.sum.txt, mapped_reads/10_16_hemi_HIPPO_S6.splicesites, mapped_reads/10_16_hemi_HIPPO_S6.sorted.bam, mapped_reads/10_16_hemi_HIPPO_S6.sorted.bam.bai
+    jobid: 35
+    benchmark: mapped_reads/1210_16_hemi_HIPPO_S6.times.tab
+    reason: Missing output files: mapped_reads/10_16_hemi_HIPPO_S6.splicesites, mapped_reads/10_16_hemi_HIPPO_S6.sorted.bam, mapped_reads/10_16_hemi_HIPPO_S6.sum.txt; Input files updated by another job: mapped_reads/indices/talens_100ksub_superT.1.ht2l
+    wildcards: sample=10_16_hemi_HIPPO_S6
+
+hisat2 --pen-noncansplice 0 --threads 1 --summary-file mapped_reads/10_16_hemi_HIPPO_S6.sum.txt --novel-splicesite-outfile mapped_reads/10_16_hemi_HIPPO_S6.splicesites -x mapped_reads/indices/talens_100ksub_superT -1 /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_16_hemi_HIPPO_S6_R1_subsample.fastq.gz -2 /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_16_hemi_HIPPO_S6_R2_subsample.fastq.gz | samtools view -Su | samtools sort - -o mapped_reads/10_16_hemi_HIPPO_S6.sorted.bam 
+samtools index mapped_reads/10_16_hemi_HIPPO_S6.sorted.bam mapped_reads/10_16_hemi_HIPPO_S6.sorted.bam.bai 
+
+[Mon Dec 17 15:04:09 2018]
+rule map_reads_to_superT:
+    input: mapped_reads/indices/talens_100ksub_superT.1.ht2l, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_14_hemi_OB_S11_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_14_hemi_OB_S11_R2_subsample.fastq.gz
+    output: mapped_reads/10_14_hemi_OB_S11.sum.txt, mapped_reads/10_14_hemi_OB_S11.splicesites, mapped_reads/10_14_hemi_OB_S11.sorted.bam, mapped_reads/10_14_hemi_OB_S11.sorted.bam.bai
+    jobid: 22
+    benchmark: mapped_reads/1210_14_hemi_OB_S11.times.tab
+    reason: Missing output files: mapped_reads/10_14_hemi_OB_S11.sorted.bam, mapped_reads/10_14_hemi_OB_S11.splicesites, mapped_reads/10_14_hemi_OB_S11.sum.txt; Input files updated by another job: mapped_reads/indices/talens_100ksub_superT.1.ht2l
+    wildcards: sample=10_14_hemi_OB_S11
+
+hisat2 --pen-noncansplice 0 --threads 1 --summary-file mapped_reads/10_14_hemi_OB_S11.sum.txt --novel-splicesite-outfile mapped_reads/10_14_hemi_OB_S11.splicesites -x mapped_reads/indices/talens_100ksub_superT -1 /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_14_hemi_OB_S11_R1_subsample.fastq.gz -2 /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_14_hemi_OB_S11_R2_subsample.fastq.gz | samtools view -Su | samtools sort - -o mapped_reads/10_14_hemi_OB_S11.sorted.bam 
+samtools index mapped_reads/10_14_hemi_OB_S11.sorted.bam mapped_reads/10_14_hemi_OB_S11.sorted.bam.bai 
+
+[Mon Dec 17 15:04:09 2018]
+rule map_reads_to_superT:
+    input: mapped_reads/indices/talens_100ksub_superT.1.ht2l, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_50_wt_OB_S9_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_50_wt_OB_S9_R2_subsample.fastq.gz
+    output: mapped_reads/10_50_wt_OB_S9.sum.txt, mapped_reads/10_50_wt_OB_S9.splicesites, mapped_reads/10_50_wt_OB_S9.sorted.bam, mapped_reads/10_50_wt_OB_S9.sorted.bam.bai
+    jobid: 12
+    benchmark: mapped_reads/1210_50_wt_OB_S9.times.tab
+    reason: Missing output files: mapped_reads/10_50_wt_OB_S9.splicesites, mapped_reads/10_50_wt_OB_S9.sorted.bam, mapped_reads/10_50_wt_OB_S9.sum.txt; Input files updated by another job: mapped_reads/indices/talens_100ksub_superT.1.ht2l
+    wildcards: sample=10_50_wt_OB_S9
+
+hisat2 --pen-noncansplice 0 --threads 1 --summary-file mapped_reads/10_50_wt_OB_S9.sum.txt --novel-splicesite-outfile mapped_reads/10_50_wt_OB_S9.splicesites -x mapped_reads/indices/talens_100ksub_superT -1 /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_50_wt_OB_S9_R1_subsample.fastq.gz -2 /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_50_wt_OB_S9_R2_subsample.fastq.gz | samtools view -Su | samtools sort - -o mapped_reads/10_50_wt_OB_S9.sorted.bam 
+samtools index mapped_reads/10_50_wt_OB_S9.sorted.bam mapped_reads/10_50_wt_OB_S9.sorted.bam.bai 
+
+[Mon Dec 17 15:04:09 2018]
+rule map_reads_to_superT:
+    input: mapped_reads/indices/talens_100ksub_superT.1.ht2l, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_28_hemi_PFC_S18_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_28_hemi_PFC_S18_R2_subsample.fastq.gz
+    output: mapped_reads/10_28_hemi_PFC_S18.sum.txt, mapped_reads/10_28_hemi_PFC_S18.splicesites, mapped_reads/10_28_hemi_PFC_S18.sorted.bam, mapped_reads/10_28_hemi_PFC_S18.sorted.bam.bai
+    jobid: 31
+    benchmark: mapped_reads/1210_28_hemi_PFC_S18.times.tab
+    reason: Missing output files: mapped_reads/10_28_hemi_PFC_S18.sum.txt, mapped_reads/10_28_hemi_PFC_S18.splicesites, mapped_reads/10_28_hemi_PFC_S18.sorted.bam; Input files updated by another job: mapped_reads/indices/talens_100ksub_superT.1.ht2l
+    wildcards: sample=10_28_hemi_PFC_S18
+
+hisat2 --pen-noncansplice 0 --threads 1 --summary-file mapped_reads/10_28_hemi_PFC_S18.sum.txt --novel-splicesite-outfile mapped_reads/10_28_hemi_PFC_S18.splicesites -x mapped_reads/indices/talens_100ksub_superT -1 /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_28_hemi_PFC_S18_R1_subsample.fastq.gz -2 /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/10_28_hemi_PFC_S18_R2_subsample.fastq.gz | samtools view -Su | samtools sort - -o mapped_reads/10_28_hemi_PFC_S18.sorted.bam 
+samtools index mapped_reads/10_28_hemi_PFC_S18.sorted.bam mapped_reads/10_28_hemi_PFC_S18.sorted.bam.bai 
+
+[Mon Dec 17 15:04:09 2018]
+rule map_reads_to_superT:
+    input: mapped_reads/indices/talens_100ksub_superT.1.ht2l, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S5_S5_rs_R1_subsample.fastq.gz, /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S5_S5_rs_R2_subsample.fastq.gz
+    output: mapped_reads/S5_S5_rs.sum.txt, mapped_reads/S5_S5_rs.splicesites, mapped_reads/S5_S5_rs.sorted.bam, mapped_reads/S5_S5_rs.sorted.bam.bai
+    jobid: 8
+    benchmark: mapped_reads/12S5_S5_rs.times.tab
+    reason: Missing output files: mapped_reads/S5_S5_rs.sum.txt, mapped_reads/S5_S5_rs.sorted.bam, mapped_reads/S5_S5_rs.splicesites; Input files updated by another job: mapped_reads/indices/talens_100ksub_superT.1.ht2l
+    wildcards: sample=S5_S5_rs
+
+hisat2 --pen-noncansplice 0 --threads 1 --summary-file mapped_reads/S5_S5_rs.sum.txt --novel-splicesite-outfile mapped_reads/S5_S5_rs.splicesites -x mapped_reads/indices/talens_100ksub_superT -1 /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S5_S5_rs_R1_subsample.fastq.gz -2 /home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/test04/qc/sub_samples/S5_S5_rs_R2_subsample.fastq.gz | samtools view -Su | samtools sort - -o mapped_reads/S5_S5_rs.sorted.bam 
+samtools index mapped_reads/S5_S5_rs.sorted.bam mapped_reads/S5_S5_rs.sorted.bam.bai 
+
+[Mon Dec 17 15:04:09 2018]
+rule get_hisat_summary:
+    input: mapped_reads/NMG3-60hemi_S1.sum.txt
+    output: stats/talens_100ksub_hisat.sum.tab
+    jobid: 51
+    reason: Missing output files: stats/talens_100ksub_hisat.sum.tab; Input files updated by another job: mapped_reads/NMG3-60hemi_S1.sum.txt
+
+[Mon Dec 17 15:04:09 2018]
+rule novel_splicesites:
+    input: mapped_reads/NMG3-60hemi_S1.splicesites, mapped_reads/NMG3-62wt_S2.splicesites, mapped_reads/NMG3-74wt_S3.splicesites, mapped_reads/NMG3-75hemi_S4.splicesites, mapped_reads/NMG3-76wt_S5.splicesites, mapped_reads/NMG3-77hemi_S6.splicesites, mapped_reads/10_13_wt_OB_S7.splicesites, mapped_reads/10_26_hemi_OB_S12.splicesites, mapped_reads/10_35_wt_HIPPO_S1.splicesites, mapped_reads/10_50_wt_OB_S9.splicesites, mapped_reads/1_21_hemi_HIPPO_S4.splicesites, mapped_reads/10_14_hemi_OB_S11.splicesites, mapped_reads/10_27_hemi_PFC_S17.splicesites, mapped_reads/10_35_wt_PFC_S13.splicesites, mapped_reads/10_9_hemi_OB_S10.splicesites, mapped_reads/1_21_hemi_PFC_S16.splicesites, mapped_reads/10_16_hemi_HIPPO_S6.splicesites, mapped_reads/10_28_hemi_HIPPO_S5.splicesites, mapped_reads/10_42_wt_HIPPO_S2.splicesites, mapped_reads/1_12_wt_HIPPO_S3.splicesites, mapped_reads/10_25_wt_OB_S8.splicesites, mapped_reads/10_28_hemi_PFC_S18.splicesites, mapped_reads/10_42_wt_PFC_S14.splicesites, mapped_reads/1_12_wt_PFC_S15.splicesites, mapped_reads/S1_S1_rs.splicesites, mapped_reads/S2_S2_rs.splicesites, mapped_reads/S3_S3_rs.splicesites, mapped_reads/S4_S4_rs.splicesites, mapped_reads/S5_S5_rs.splicesites, mapped_reads/S6_S6_rs.splicesites
+    output: stats/talens_100ksub.splicesites
+    jobid: 53
+    reason: Missing output files: stats/talens_100ksub.splicesites; Input files updated by another job: mapped_reads/NMG3-60hemi_S1.splicesites, mapped_reads/10_35_wt_PFC_S13.splicesites, mapped_reads/10_9_hemi_OB_S10.splicesites, mapped_reads/1_21_hemi_PFC_S16.splicesites, mapped_reads/10_28_hemi_PFC_S18.splicesites, mapped_reads/1_12_wt_PFC_S15.splicesites, mapped_reads/10_25_wt_OB_S8.splicesites, mapped_reads/1_21_hemi_HIPPO_S4.splicesites, mapped_reads/1_12_wt_HIPPO_S3.splicesites, mapped_reads/10_26_hemi_OB_S12.splicesites, mapped_reads/10_27_hemi_PFC_S17.splicesites, mapped_reads/S2_S2_rs.splicesites, mapped_reads/10_16_hemi_HIPPO_S6.splicesites, mapped_reads/NMG3-76wt_S5.splicesites, mapped_reads/S6_S6_rs.splicesites, mapped_reads/10_14_hemi_OB_S11.splicesites, mapped_reads/S4_S4_rs.splicesites, mapped_reads/S1_S1_rs.splicesites, mapped_reads/10_35_wt_HIPPO_S1.splicesites, mapped_reads/S3_S3_rs.splicesites, mapped_reads/NMG3-74wt_S3.splicesites, mapped_reads/10_13_wt_OB_S7.splicesites, mapped_reads/NMG3-62wt_S2.splicesites, mapped_reads/10_50_wt_OB_S9.splicesites, mapped_reads/NMG3-77hemi_S6.splicesites, mapped_reads/10_28_hemi_HIPPO_S5.splicesites, mapped_reads/10_42_wt_PFC_S14.splicesites, mapped_reads/NMG3-75hemi_S4.splicesites, mapped_reads/10_42_wt_HIPPO_S2.splicesites, mapped_reads/S5_S5_rs.splicesites
+
+cat mapped_reads/NMG3-60hemi_S1.splicesites mapped_reads/NMG3-62wt_S2.splicesites mapped_reads/NMG3-74wt_S3.splicesites mapped_reads/NMG3-75hemi_S4.splicesites mapped_reads/NMG3-76wt_S5.splicesites mapped_reads/NMG3-77hemi_S6.splicesites mapped_reads/10_13_wt_OB_S7.splicesites mapped_reads/10_26_hemi_OB_S12.splicesites mapped_reads/10_35_wt_HIPPO_S1.splicesites mapped_reads/10_50_wt_OB_S9.splicesites mapped_reads/1_21_hemi_HIPPO_S4.splicesites mapped_reads/10_14_hemi_OB_S11.splicesites mapped_reads/10_27_hemi_PFC_S17.splicesites mapped_reads/10_35_wt_PFC_S13.splicesites mapped_reads/10_9_hemi_OB_S10.splicesites mapped_reads/1_21_hemi_PFC_S16.splicesites mapped_reads/10_16_hemi_HIPPO_S6.splicesites mapped_reads/10_28_hemi_HIPPO_S5.splicesites mapped_reads/10_42_wt_HIPPO_S2.splicesites mapped_reads/1_12_wt_HIPPO_S3.splicesites mapped_reads/10_25_wt_OB_S8.splicesites mapped_reads/10_28_hemi_PFC_S18.splicesites mapped_reads/10_42_wt_PFC_S14.splicesites mapped_reads/1_12_wt_PFC_S15.splicesites mapped_reads/S1_S1_rs.splicesites mapped_reads/S2_S2_rs.splicesites mapped_reads/S3_S3_rs.splicesites mapped_reads/S4_S4_rs.splicesites mapped_reads/S5_S5_rs.splicesites mapped_reads/S6_S6_rs.splicesites | sort -u > stats/talens_100ksub.splicesites
+
+[Mon Dec 17 15:04:09 2018]
+rule get_splice_blocks:
+    input: superT/talens_100ksub_SuperDuper.fa, mapped_reads/NMG3-60hemi_S1.splicesites, mapped_reads/NMG3-62wt_S2.splicesites, mapped_reads/NMG3-74wt_S3.splicesites, mapped_reads/NMG3-75hemi_S4.splicesites, mapped_reads/NMG3-76wt_S5.splicesites, mapped_reads/NMG3-77hemi_S6.splicesites, mapped_reads/10_13_wt_OB_S7.splicesites, mapped_reads/10_26_hemi_OB_S12.splicesites, mapped_reads/10_35_wt_HIPPO_S1.splicesites, mapped_reads/10_50_wt_OB_S9.splicesites, mapped_reads/1_21_hemi_HIPPO_S4.splicesites, mapped_reads/10_14_hemi_OB_S11.splicesites, mapped_reads/10_27_hemi_PFC_S17.splicesites, mapped_reads/10_35_wt_PFC_S13.splicesites, mapped_reads/10_9_hemi_OB_S10.splicesites, mapped_reads/1_21_hemi_PFC_S16.splicesites, mapped_reads/10_16_hemi_HIPPO_S6.splicesites, mapped_reads/10_28_hemi_HIPPO_S5.splicesites, mapped_reads/10_42_wt_HIPPO_S2.splicesites, mapped_reads/1_12_wt_HIPPO_S3.splicesites, mapped_reads/10_25_wt_OB_S8.splicesites, mapped_reads/10_28_hemi_PFC_S18.splicesites, mapped_reads/10_42_wt_PFC_S14.splicesites, mapped_reads/1_12_wt_PFC_S15.splicesites, mapped_reads/S1_S1_rs.splicesites, mapped_reads/S2_S2_rs.splicesites, mapped_reads/S3_S3_rs.splicesites, mapped_reads/S4_S4_rs.splicesites, mapped_reads/S5_S5_rs.splicesites, mapped_reads/S6_S6_rs.splicesites
+    output: counts/gene.sizes, counts/talens_100ksub_blocks.gtf
+    jobid: 49
+    reason: Missing output files: counts/talens_100ksub_blocks.gtf; Input files updated by another job: mapped_reads/NMG3-60hemi_S1.splicesites, mapped_reads/10_35_wt_PFC_S13.splicesites, mapped_reads/10_9_hemi_OB_S10.splicesites, mapped_reads/1_21_hemi_PFC_S16.splicesites, mapped_reads/10_28_hemi_PFC_S18.splicesites, mapped_reads/1_12_wt_PFC_S15.splicesites, mapped_reads/10_25_wt_OB_S8.splicesites, mapped_reads/1_21_hemi_HIPPO_S4.splicesites, mapped_reads/1_12_wt_HIPPO_S3.splicesites, mapped_reads/10_26_hemi_OB_S12.splicesites, superT/talens_100ksub_SuperDuper.fa, mapped_reads/10_27_hemi_PFC_S17.splicesites, mapped_reads/S2_S2_rs.splicesites, mapped_reads/10_16_hemi_HIPPO_S6.splicesites, mapped_reads/NMG3-76wt_S5.splicesites, mapped_reads/S6_S6_rs.splicesites, mapped_reads/10_14_hemi_OB_S11.splicesites, mapped_reads/S4_S4_rs.splicesites, mapped_reads/S1_S1_rs.splicesites, mapped_reads/10_35_wt_HIPPO_S1.splicesites, mapped_reads/S3_S3_rs.splicesites, mapped_reads/NMG3-74wt_S3.splicesites, mapped_reads/10_13_wt_OB_S7.splicesites, mapped_reads/NMG3-62wt_S2.splicesites, mapped_reads/10_50_wt_OB_S9.splicesites, mapped_reads/NMG3-77hemi_S6.splicesites, mapped_reads/10_28_hemi_HIPPO_S5.splicesites, mapped_reads/10_42_wt_PFC_S14.splicesites, mapped_reads/NMG3-75hemi_S4.splicesites, mapped_reads/10_42_wt_HIPPO_S2.splicesites, mapped_reads/S5_S5_rs.splicesites
+
+samtools faidx superT/talens_100ksub_SuperDuper.fa ;cut -f1,2 superT/talens_100ksub_SuperDuper.fa.fai > counts/gene.sizes ;../tools/make_blocks counts/gene.sizes mapped_reads/NMG3-60hemi_S1.splicesites mapped_reads/NMG3-62wt_S2.splicesites mapped_reads/NMG3-74wt_S3.splicesites mapped_reads/NMG3-75hemi_S4.splicesites mapped_reads/NMG3-76wt_S5.splicesites mapped_reads/NMG3-77hemi_S6.splicesites mapped_reads/10_13_wt_OB_S7.splicesites mapped_reads/10_26_hemi_OB_S12.splicesites mapped_reads/10_35_wt_HIPPO_S1.splicesites mapped_reads/10_50_wt_OB_S9.splicesites mapped_reads/1_21_hemi_HIPPO_S4.splicesites mapped_reads/10_14_hemi_OB_S11.splicesites mapped_reads/10_27_hemi_PFC_S17.splicesites mapped_reads/10_35_wt_PFC_S13.splicesites mapped_reads/10_9_hemi_OB_S10.splicesites mapped_reads/1_21_hemi_PFC_S16.splicesites mapped_reads/10_16_hemi_HIPPO_S6.splicesites mapped_reads/10_28_hemi_HIPPO_S5.splicesites mapped_reads/10_42_wt_HIPPO_S2.splicesites mapped_reads/1_12_wt_HIPPO_S3.splicesites mapped_reads/10_25_wt_OB_S8.splicesites mapped_reads/10_28_hemi_PFC_S18.splicesites mapped_reads/10_42_wt_PFC_S14.splicesites mapped_reads/1_12_wt_PFC_S15.splicesites mapped_reads/S1_S1_rs.splicesites mapped_reads/S2_S2_rs.splicesites mapped_reads/S3_S3_rs.splicesites mapped_reads/S4_S4_rs.splicesites mapped_reads/S5_S5_rs.splicesites mapped_reads/S6_S6_rs.splicesites > counts/talens_100ksub_blocks.gtf 
+
+[Mon Dec 17 15:04:09 2018]
+rule count_reads:
+    input: mapped_reads/NMG3-60hemi_S1.sorted.bam, mapped_reads/NMG3-62wt_S2.sorted.bam, mapped_reads/NMG3-74wt_S3.sorted.bam, mapped_reads/NMG3-75hemi_S4.sorted.bam, mapped_reads/NMG3-76wt_S5.sorted.bam, mapped_reads/NMG3-77hemi_S6.sorted.bam, mapped_reads/10_13_wt_OB_S7.sorted.bam, mapped_reads/10_26_hemi_OB_S12.sorted.bam, mapped_reads/10_35_wt_HIPPO_S1.sorted.bam, mapped_reads/10_50_wt_OB_S9.sorted.bam, mapped_reads/1_21_hemi_HIPPO_S4.sorted.bam, mapped_reads/10_14_hemi_OB_S11.sorted.bam, mapped_reads/10_27_hemi_PFC_S17.sorted.bam, mapped_reads/10_35_wt_PFC_S13.sorted.bam, mapped_reads/10_9_hemi_OB_S10.sorted.bam, mapped_reads/1_21_hemi_PFC_S16.sorted.bam, mapped_reads/10_16_hemi_HIPPO_S6.sorted.bam, mapped_reads/10_28_hemi_HIPPO_S5.sorted.bam, mapped_reads/10_42_wt_HIPPO_S2.sorted.bam, mapped_reads/1_12_wt_HIPPO_S3.sorted.bam, mapped_reads/10_25_wt_OB_S8.sorted.bam, mapped_reads/10_28_hemi_PFC_S18.sorted.bam, mapped_reads/10_42_wt_PFC_S14.sorted.bam, mapped_reads/1_12_wt_PFC_S15.sorted.bam, mapped_reads/S1_S1_rs.sorted.bam, mapped_reads/S2_S2_rs.sorted.bam, mapped_reads/S3_S3_rs.sorted.bam, mapped_reads/S4_S4_rs.sorted.bam, mapped_reads/S5_S5_rs.sorted.bam, mapped_reads/S6_S6_rs.sorted.bam, counts/talens_100ksub_blocks.gtf
+    output: counts/talens_100ksub_gene.counts, counts/talens_100ksub_block.counts
+    jobid: 18
+    benchmark: counts/13featurecounts.times.tab
+    reason: Missing output files: counts/talens_100ksub_gene.counts, counts/talens_100ksub_block.counts; Input files updated by another job: mapped_reads/10_13_wt_OB_S7.sorted.bam, mapped_reads/10_35_wt_HIPPO_S1.sorted.bam, mapped_reads/NMG3-62wt_S2.sorted.bam, mapped_reads/NMG3-75hemi_S4.sorted.bam, mapped_reads/10_28_hemi_HIPPO_S5.sorted.bam, mapped_reads/NMG3-77hemi_S6.sorted.bam, mapped_reads/S1_S1_rs.sorted.bam, mapped_reads/10_35_wt_PFC_S13.sorted.bam, mapped_reads/S4_S4_rs.sorted.bam, mapped_reads/10_16_hemi_HIPPO_S6.sorted.bam, mapped_reads/NMG3-76wt_S5.sorted.bam, mapped_reads/1_12_wt_HIPPO_S3.sorted.bam, counts/talens_100ksub_blocks.gtf, mapped_reads/S3_S3_rs.sorted.bam, mapped_reads/S5_S5_rs.sorted.bam, mapped_reads/S2_S2_rs.sorted.bam, mapped_reads/1_21_hemi_HIPPO_S4.sorted.bam, mapped_reads/10_9_hemi_OB_S10.sorted.bam, mapped_reads/10_27_hemi_PFC_S17.sorted.bam, mapped_reads/10_28_hemi_PFC_S18.sorted.bam, mapped_reads/10_42_wt_HIPPO_S2.sorted.bam, mapped_reads/1_21_hemi_PFC_S16.sorted.bam, mapped_reads/10_50_wt_OB_S9.sorted.bam, mapped_reads/1_12_wt_PFC_S15.sorted.bam, mapped_reads/NMG3-60hemi_S1.sorted.bam, mapped_reads/NMG3-74wt_S3.sorted.bam, mapped_reads/10_14_hemi_OB_S11.sorted.bam, mapped_reads/10_25_wt_OB_S8.sorted.bam, mapped_reads/10_42_wt_PFC_S14.sorted.bam, mapped_reads/10_26_hemi_OB_S12.sorted.bam, mapped_reads/S6_S6_rs.sorted.bam
+    threads: 28
+
+featureCounts -T 28 --primary -p --fraction -O -t exon -g gene_id -a counts/talens_100ksub_blocks.gtf -o counts/talens_100ksub_gene.counts mapped_reads/NMG3-60hemi_S1.sorted.bam mapped_reads/NMG3-62wt_S2.sorted.bam mapped_reads/NMG3-74wt_S3.sorted.bam mapped_reads/NMG3-75hemi_S4.sorted.bam mapped_reads/NMG3-76wt_S5.sorted.bam mapped_reads/NMG3-77hemi_S6.sorted.bam mapped_reads/10_13_wt_OB_S7.sorted.bam mapped_reads/10_26_hemi_OB_S12.sorted.bam mapped_reads/10_35_wt_HIPPO_S1.sorted.bam mapped_reads/10_50_wt_OB_S9.sorted.bam mapped_reads/1_21_hemi_HIPPO_S4.sorted.bam mapped_reads/10_14_hemi_OB_S11.sorted.bam mapped_reads/10_27_hemi_PFC_S17.sorted.bam mapped_reads/10_35_wt_PFC_S13.sorted.bam mapped_reads/10_9_hemi_OB_S10.sorted.bam mapped_reads/1_21_hemi_PFC_S16.sorted.bam mapped_reads/10_16_hemi_HIPPO_S6.sorted.bam mapped_reads/10_28_hemi_HIPPO_S5.sorted.bam mapped_reads/10_42_wt_HIPPO_S2.sorted.bam mapped_reads/1_12_wt_HIPPO_S3.sorted.bam mapped_reads/10_25_wt_OB_S8.sorted.bam mapped_reads/10_28_hemi_PFC_S18.sorted.bam mapped_reads/10_42_wt_PFC_S14.sorted.bam mapped_reads/1_12_wt_PFC_S15.sorted.bam mapped_reads/S1_S1_rs.sorted.bam mapped_reads/S2_S2_rs.sorted.bam mapped_reads/S3_S3_rs.sorted.bam mapped_reads/S4_S4_rs.sorted.bam mapped_reads/S5_S5_rs.sorted.bam mapped_reads/S6_S6_rs.sorted.bam ;featureCounts -T 28 --primary -p -f -t exon -g gene_id -a counts/talens_100ksub_blocks.gtf -o counts/talens_100ksub_block.counts mapped_reads/NMG3-60hemi_S1.sorted.bam mapped_reads/NMG3-62wt_S2.sorted.bam mapped_reads/NMG3-74wt_S3.sorted.bam mapped_reads/NMG3-75hemi_S4.sorted.bam mapped_reads/NMG3-76wt_S5.sorted.bam mapped_reads/NMG3-77hemi_S6.sorted.bam mapped_reads/10_13_wt_OB_S7.sorted.bam mapped_reads/10_26_hemi_OB_S12.sorted.bam mapped_reads/10_35_wt_HIPPO_S1.sorted.bam mapped_reads/10_50_wt_OB_S9.sorted.bam mapped_reads/1_21_hemi_HIPPO_S4.sorted.bam mapped_reads/10_14_hemi_OB_S11.sorted.bam mapped_reads/10_27_hemi_PFC_S17.sorted.bam mapped_reads/10_35_wt_PFC_S13.sorted.bam mapped_reads/10_9_hemi_OB_S10.sorted.bam mapped_reads/1_21_hemi_PFC_S16.sorted.bam mapped_reads/10_16_hemi_HIPPO_S6.sorted.bam mapped_reads/10_28_hemi_HIPPO_S5.sorted.bam mapped_reads/10_42_wt_HIPPO_S2.sorted.bam mapped_reads/1_12_wt_HIPPO_S3.sorted.bam mapped_reads/10_25_wt_OB_S8.sorted.bam mapped_reads/10_28_hemi_PFC_S18.sorted.bam mapped_reads/10_42_wt_PFC_S14.sorted.bam mapped_reads/1_12_wt_PFC_S15.sorted.bam mapped_reads/S1_S1_rs.sorted.bam mapped_reads/S2_S2_rs.sorted.bam mapped_reads/S3_S3_rs.sorted.bam mapped_reads/S4_S4_rs.sorted.bam mapped_reads/S5_S5_rs.sorted.bam mapped_reads/S6_S6_rs.sorted.bam ;
+
+[Mon Dec 17 15:04:09 2018]
+rule get_featureCounts:
+    input: counts/talens_100ksub_block.counts, counts/talens_100ksub_gene.counts
+    output: stats/talens_100ksub_fc.sum.tab
+    jobid: 52
+    reason: Missing output files: stats/talens_100ksub_fc.sum.tab; Input files updated by another job: counts/talens_100ksub_gene.counts, counts/talens_100ksub_block.counts
+
+[Mon Dec 17 15:04:09 2018]
+rule time_stats:
+    input: counts/talens_100ksub_gene.counts
+    output: stats/talens_100ksub.times.tab
+    jobid: 11
+    reason: Missing output files: stats/talens_100ksub.times.tab; Input files updated by another job: counts/talens_100ksub_gene.counts
+
+[Mon Dec 17 15:04:09 2018]
+rule superT_stats:
+    input: counts/talens_100ksub_blocks.gtf, counts/talens_100ksub_gene.counts, superT/talens_100ksub_SuperDuper.fa, stats/talens_100ksub_hisat.sum.tab, stats/talens_100ksub_fc.sum.tab, stats/talens_100ksub.splicesites
+    output: stats/talens_100ksub.sum.tab
+    jobid: 38
+    reason: Missing output files: stats/talens_100ksub.sum.tab; Input files updated by another job: counts/talens_100ksub_blocks.gtf, stats/talens_100ksub_hisat.sum.tab, counts/talens_100ksub_gene.counts, stats/talens_100ksub.splicesites, stats/talens_100ksub_fc.sum.tab, superT/talens_100ksub_SuperDuper.fa
+
+[Mon Dec 17 15:04:09 2018]
+localrule all:
+    input: genome_guided_assembly/talens_100ksub_assembly.gtf, genome_superT/talens_100ksub_genome_superT.fa, de_novo_assembly/talens_100ksub_de_novo.fa, clustering/talens_100ksub.clusters, superT/talens_100ksub_SuperDuper.fa, mapped_reads/NMG3-60hemi_S1.sum.txt, mapped_reads/NMG3-62wt_S2.sum.txt, mapped_reads/NMG3-74wt_S3.sum.txt, mapped_reads/NMG3-75hemi_S4.sum.txt, mapped_reads/NMG3-76wt_S5.sum.txt, mapped_reads/NMG3-77hemi_S6.sum.txt, mapped_reads/10_13_wt_OB_S7.sum.txt, mapped_reads/10_26_hemi_OB_S12.sum.txt, mapped_reads/10_35_wt_HIPPO_S1.sum.txt, mapped_reads/10_50_wt_OB_S9.sum.txt, mapped_reads/1_21_hemi_HIPPO_S4.sum.txt, mapped_reads/10_14_hemi_OB_S11.sum.txt, mapped_reads/10_27_hemi_PFC_S17.sum.txt, mapped_reads/10_35_wt_PFC_S13.sum.txt, mapped_reads/10_9_hemi_OB_S10.sum.txt, mapped_reads/1_21_hemi_PFC_S16.sum.txt, mapped_reads/10_16_hemi_HIPPO_S6.sum.txt, mapped_reads/10_28_hemi_HIPPO_S5.sum.txt, mapped_reads/10_42_wt_HIPPO_S2.sum.txt, mapped_reads/1_12_wt_HIPPO_S3.sum.txt, mapped_reads/10_25_wt_OB_S8.sum.txt, mapped_reads/10_28_hemi_PFC_S18.sum.txt, mapped_reads/10_42_wt_PFC_S14.sum.txt, mapped_reads/1_12_wt_PFC_S15.sum.txt, mapped_reads/S1_S1_rs.sum.txt, mapped_reads/S2_S2_rs.sum.txt, mapped_reads/S3_S3_rs.sum.txt, mapped_reads/S4_S4_rs.sum.txt, mapped_reads/S5_S5_rs.sum.txt, mapped_reads/S6_S6_rs.sum.txt, counts/talens_100ksub_gene.counts, stats/talens_100ksub.sum.tab, stats/talens_100ksub_rel_denovo.sum.tab, stats/talens_100ksub.times.tab
+    jobid: 0
+    reason: Input files updated by another job: mapped_reads/10_35_wt_PFC_S13.sum.txt, mapped_reads/10_35_wt_HIPPO_S1.sum.txt, mapped_reads/10_13_wt_OB_S7.sum.txt, mapped_reads/1_21_hemi_HIPPO_S4.sum.txt, mapped_reads/S6_S6_rs.sum.txt, mapped_reads/NMG3-74wt_S3.sum.txt, genome_superT/talens_100ksub_genome_superT.fa, mapped_reads/S5_S5_rs.sum.txt, mapped_reads/1_21_hemi_PFC_S16.sum.txt, mapped_reads/10_28_hemi_HIPPO_S5.sum.txt, stats/talens_100ksub.times.tab, mapped_reads/10_50_wt_OB_S9.sum.txt, stats/talens_100ksub_rel_denovo.sum.tab, clustering/talens_100ksub.clusters, mapped_reads/10_27_hemi_PFC_S17.sum.txt, mapped_reads/NMG3-77hemi_S6.sum.txt, de_novo_assembly/talens_100ksub_de_novo.fa, counts/talens_100ksub_gene.counts, mapped_reads/S1_S1_rs.sum.txt, mapped_reads/S3_S3_rs.sum.txt, mapped_reads/NMG3-60hemi_S1.sum.txt, mapped_reads/10_14_hemi_OB_S11.sum.txt, mapped_reads/10_25_wt_OB_S8.sum.txt, genome_guided_assembly/talens_100ksub_assembly.gtf, mapped_reads/S2_S2_rs.sum.txt, mapped_reads/10_42_wt_PFC_S14.sum.txt, mapped_reads/NMG3-62wt_S2.sum.txt, superT/talens_100ksub_SuperDuper.fa, mapped_reads/NMG3-76wt_S5.sum.txt, mapped_reads/S4_S4_rs.sum.txt, mapped_reads/10_28_hemi_PFC_S18.sum.txt, mapped_reads/1_12_wt_PFC_S15.sum.txt, mapped_reads/10_9_hemi_OB_S10.sum.txt, mapped_reads/10_26_hemi_OB_S12.sum.txt, mapped_reads/10_16_hemi_HIPPO_S6.sum.txt, mapped_reads/1_12_wt_HIPPO_S3.sum.txt, mapped_reads/NMG3-75hemi_S4.sum.txt, stats/talens_100ksub.sum.tab, mapped_reads/10_42_wt_HIPPO_S2.sum.txt
+
+Job counts:
+	count	jobs
+	1	all
+	1	blat_genomeST_denovo
+	1	blat_relST_denovo
+	1	blat_relST_genomeST
+	1	build_superT_index
+	1	clean_de_novo
+	1	count_reads
+	1	de_novo_assembly
+	1	extract_exons_from_fasta
+	1	flatten_gtf
+	1	genome_ST_names
+	1	genome_assembly
+	1	get_featureCounts
+	1	get_hisat_summary
+	1	get_splice_blocks
+	1	make_cluster_files_for_lace
+	1	map_reads_to_genome
+	30	map_reads_to_superT
+	1	merge_genome_annotations
+	1	novel_splicesites
+	1	related_denovo_stats
+	1	run_lace
+	1	superT_stats
+	1	time_stats
+	53
