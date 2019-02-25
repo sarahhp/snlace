@@ -1,0 +1,34 @@
+""" Necklace pipeline implemented in snakemake """
+
+__author__ = "Sarah Hazell Pickering (sarah.pickering@anu.edu.au)"
+__date__ = "2018-12-17"
+
+include: "scripts/build_genome_guided_assembly.py"
+include: "scripts/build_genome_superT.py"
+include: "scripts/build_de_novo_assembly.py"
+include: "scripts/build_relatedsp_superT.py"
+include: "scripts/cluster.py"
+include: "scripts/run_lace.py"
+include: "scripts/map_reads_to_superT.py"
+include: "scripts/get_counts.py"
+include: "scripts/get_stats.py"
+
+#configfile: "necklace.json"
+DATASET = config["dataset"]
+OUTPUT_DIR = "output_data/"
+
+rule all:
+    input: #files created by each step
+        "genome_guided_assembly/" + DATASET + "_assembly.gtf",
+        "genome_superT/" + DATASET + "_genome_superT.fa",
+        "de_novo_assembly/" + DATASET + "_de_novo.fa",
+        #related species files are in a different folder and can be reused
+        "clustering/" + DATASET + ".clusters",
+        "superT/" + DATASET + "_SuperDuper.fa",
+        expand ("mapped_reads/{sample}.sum.txt", sample = config["samples"]),
+        "counts/" + DATASET + "_gene.counts",
+        
+        #final summary statistics
+        "stats/" + DATASET + ".sum.tab",
+        "stats/" + DATASET + "_rel_denovo.sum.tab",
+        "stats/" + DATASET + ".times.tab"

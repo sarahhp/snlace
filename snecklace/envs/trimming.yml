@@ -1,0 +1,7 @@
+name: trimming
+channels:
+- bioconda
+dependencies:
+- snakemake-minimal
+- fastp
+- seqtk
