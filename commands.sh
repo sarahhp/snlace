@@ -5,7 +5,7 @@ source activate nlace3
 DIR="/home/sarah/projects/talens_mouse/pooled_testis_brain_rspermatids/necklace/tmp"
 
 #necklace test case
-snakemake -s snecklace/Snakefile -d $DIR --configfile 'test.config.json' -j 28  --use-conda -npr --prioritize de_novo_assembly > test_run.log 2>&1 &
+snakemake -s snecklace/Snakefile -d $DIR --configfile 'test.config.json' -j 28  --use-conda -npr --prioritize de_novo_assembly #> test_run.log 2>&1 &
 #tail -f test_run.log
 
 #test blat/pblat:
