@@ -6,11 +6,11 @@
 """
 
 __author__ = "Sarah Hazell Pickering (sarah.pickering@anu.edu.au)"
-__date__ = "2018-10-02"
+__date__ = "2018-11-06"
 
 #include: "build_genome_guided_assembly.py"
 
-TOOLS = "../pipeline/tools"
+TOOLS = "../tools" 
 GGST_OUTDIR = "genome_superT/"
 
 #configfile: "necklace.json"

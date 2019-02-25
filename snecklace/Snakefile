@@ -1,7 +1,7 @@
 """ Necklace pipeline implemented in snakemake """
 
 __author__ = "Sarah Hazell Pickering (sarah.pickering@anu.edu.au)"
-__date__ = "2018-11-06"
+__date__ = "2018-12-17"
 
 include: "scripts/build_genome_guided_assembly.py"
 include: "scripts/build_genome_superT.py"
@@ -15,6 +15,7 @@ include: "scripts/get_stats.py"
 
 #configfile: "necklace.json"
 DATASET = config["dataset"]
+OUTPUT_DIR = "output_data/"
 
 rule all:
     input: #files created by each step

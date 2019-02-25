@@ -6,11 +6,11 @@
 """
 
 __author__ = "Sarah Hazell Pickering (sarah.pickering@anu.edu.au)"
-__date__ = "2018-10-16"
+__date__ = "2018-12-17"
 
 import os
 
-TOOLS= "../pipeline/tools"
+TOOLS= "../tools"
 
 #configfile: "necklace.json"
 SP_NAMES = config["relatedsp_names"]
