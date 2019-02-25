@@ -52,12 +52,12 @@ rule blat_relST_denovo:
         de_novo = make_de_novo
     params:
          config["params"]["blat_related"]
-    threads: config["max_threads"]-1
+    #threads: config["max_threads"]-1
     benchmark: CLUSTER_OUTDIR + "08blat_relST_denovo.times.tab"
     output:
         CLUSTER_OUTDIR + "relST_denovo.psl"
     shell:
-        "pblat threads={threads} {params} {input.related} {input.de_novo} {output}"
+        "blat {input.related} {input.de_novo} {params} {output}"
 
 rule blat_genomeST_denovo:
     version: "3.7"
