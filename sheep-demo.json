@@ -1,0 +1,42 @@
+{
+    "date":"2019-03-18",
+    "dataset":"demo",
+     
+    "genome_name":"O.ari",
+    "genome_dir":"data",
+    "genome_file":"Ovis_aries.Oar_v3.1.dna.toplevel.chr14.fa",
+    
+    "annot_files":["data/Ovis_aries.Oar_v3.1.90.chr14.gtf"],
+
+    "raw_dir":"data",
+
+    "fastq_dir":"data",
+    "samples":[	"SRR2932539_small",    "SRR2932540_small",    "SRR2932541_small",
+                "SRR2932542_small",    "SRR2932561_small",    "SRR2932562_small",
+	    	"SRR2932563_small",    "SRR2932564_small"],
+    "fastq_suffix":".fastq.gz",
+    "pair_notation":"",
+
+    "relatedsp_names":"H.sap",
+    "relatedsp_genome_file":"data/Homo_sapiens.GRCh38.dna.toplevel.chr19.fa",
+    "relatedsp_annot_files":["data/Homo_sapiens.GRCh38.90.CDS.chr19.gtf"],
+    "relatedsp_superT_dir":"output/relatives_superTranscriptome",
+
+    "params":{
+        "hisat-build":"-q",
+        "hisat_initial":"",
+        "stringtie":"",
+        "stringtie_merge":"",
+        "trinity":"--max_memory 50G",
+        "blat":"-minScore=200 -minIdentity=98",
+        "blat_related":"-t=dnax -q=dnax -minScore=200",
+        "lace":"",
+        "hisat_final":"--pen-noncansplice 0",
+        "featureCounts_blocks":"--primary -p",
+        "featureCounts_genes":"--primary -p --fraction -O"
+        },
+    "home_dirs":{
+        "trinity":"/home/sarah/pkgs/conda/miniconda/envs/nlace3/opt/trinity-2.8.4"
+        },
+    "max_threads":32
+}
