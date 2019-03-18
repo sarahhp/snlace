@@ -10,7 +10,7 @@ __date__ = "2018-12-17"
 
 import os
 
-TOOLS= "../tools"
+TOOLS= config["home_dirs"]["tools"]
 
 #configfile: "necklace.json"
 SP_NAMES = config["relatedsp_names"]

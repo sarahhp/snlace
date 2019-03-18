@@ -10,7 +10,7 @@ __date__ = "2018-11-06"
 
 #include: "build_genome_guided_assembly.py"
 
-TOOLS = "../tools" 
+TOOLS = config["home_dirs"]["tools"] 
 GGST_OUTDIR = "genome_superT/"
 
 #configfile: "necklace.json"

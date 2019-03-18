@@ -9,7 +9,7 @@ __date__ = "2018-12-17"
 
 #include: "map_reads_to_superT.py"
 
-TOOLS = "../tools"
+TOOLS = config["home_dirs"]["tools"]
 OUTPUT_DIR = "output_data/"
 COUNT_OUTDIR = "counts/"
 
