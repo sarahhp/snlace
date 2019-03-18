@@ -31,7 +31,7 @@ import Bio.Seq
 import pandas as pd
 
 #custom helper scripts
-sys.path.append("/home/sarah/pkgs/nlace/snlace/snecklace/stats_scripts")
+sys.path.append("snlace/snecklace/stats_scripts")
 import get_hisat_sum as hisat_sum
 import get_fc_sum as fc_sum
 import get_no_genes as no_genes
