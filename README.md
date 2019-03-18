@@ -26,7 +26,7 @@ To run:
   - biopython 
   - pandas
 
-2. Edit the config.json file with paths to data and reference genomes.  
+2. Edit the config.json file with paths to data and reference genomes.  To line 34 of the snecklace/scripts/get_stats.py you may have to add the absolute path of the snecklace/stats_scripts.  This is because the python scripts used by get_stats are not globally installed and their location must be appended to the python path.   
 
 3. Run the pipeline by executing the commands.sh file (bash /home/commands.sh) or by running the contained snakemakemake commands directly on the CLI.  -n allows a dryrun of the pipeline.  
 
