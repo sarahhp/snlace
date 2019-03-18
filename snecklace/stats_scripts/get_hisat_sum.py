@@ -15,7 +15,7 @@ import pandas
 pandas.set_option('display.max_rows', 500)
 pandas.set_option('display.max_columns', 500)
 pandas.set_option('display.width', 200)
-import Bio.Seq
+#import Bio.Seq
 
 SUM_SUFFIX = ".sum.txt"
 

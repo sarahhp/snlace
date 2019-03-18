@@ -1,0 +1,38 @@
+{
+    "__default__" :
+    {
+        "queue" : "all.q,hugemem.q",
+	"virtual_free" : "24G",
+        "h_vmem" : "24.1G",
+    	"threads" :  "2",
+        "stdout_dir" : "/home/spickering/fear_output",
+	"errout_dir" : "/home/spickering/fear_error"
+    },
+    "run_lace" :
+	{
+        "queue" :  "hugemem.q",
+	"virtual_free" : "64G",
+	"h_vmem" : "64.1G",
+        "threads" : "16",
+	"stdout_dir" : "/home/spickering/fear_output",
+        "errout_dir" : "/home/spickering/fear_error"
+    },
+    "de_novo_assembly":
+        {
+        "queue": "hugemem.q",
+        "virtual_free":"16G",
+        "h_vmem":"16.1G",
+        "threads":"64",
+        "stdout_dir" : "/home/spickering/fear_output",
+        "errout_dir" : "/home/spickering/fear_error"
+    },
+    "blat_genomeST_denovo" :
+        {
+        "queue" :  "hugemem.q",
+        "virtual_free" : "32G",
+        "h_vmem" : "32.1G",
+        "threads" : "32",
+        "stdout_dir" : "/home/spickering/fear_output",
+        "errout_dir" : "/home/spickering/fear_error"
+    }
+}

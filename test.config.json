@@ -34,6 +34,7 @@
         "trinity":"--max_memory 50G",
         "blat":"-minScore=200 -minIdentity=98",
         "blat_related":"-t=dnax -q=dnax -minScore=200",
+        "lace":"",
         "hisat_final":"--pen-noncansplice 0",
         "featureCounts_blocks":"--primary -p",
         "featureCounts_genes":"--primary -p --fraction -O"

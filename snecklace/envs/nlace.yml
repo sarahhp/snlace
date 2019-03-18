@@ -1,0 +1,15 @@
+name: nlace
+channels:
+- bioconda
+dependencies:
+- hisat2 
+- snakemake-minimal 
+- samtools 
+- stringtie 
+- gffread 
+- trinity 
+- blat 
+- subread 
+- biopython 
+- pandas
+
