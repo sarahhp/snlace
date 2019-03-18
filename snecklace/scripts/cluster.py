@@ -18,7 +18,7 @@ __date__ = "2018-12-17"
 #include: "build_de_novo_assembly.py"
 #include: "build_relatedsp_superT.py"
 
-TOOLS = "tools"
+TOOLS = config["home_dirs"]["tools"]
 OUTPUT_DIR = "output_data/"
 CLUSTER_OUTDIR = "clustering/"
 
