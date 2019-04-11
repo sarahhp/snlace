@@ -14,6 +14,8 @@ def getTrinityStats(path):
         elif line.startswith("Total assembled bases"):
             bp = int (line.split()[-1])
             break
+        else:
+            raise AssertionError ("Trinity stats file is empty or has unrecognised syntax")
     f.close()
     collate = [genes, bp]
     return collate

@@ -7,8 +7,8 @@ DIR=".." #set wd
 
 #necklace test case
 #use -n for dryrun; use just -pr for a real run
-snakemake -s snecklace/Snakefile -d $DIR --configfile sheep-demo.json --cores 28  --use-conda -npr --prioritize de_novo_assembly #> test_run.log 2>&1 &  #to log the progress of the pipeline (captures errors)
-#tail -f test_run.log
+snakemake -s snecklace/Snakefile -d $DIR --configfile sheep-demo.json --cores 28  --use-conda -pr --prioritize de_novo_assembly > test_run.log 2>&1 &  #to log the progress of the pipeline (captures errors)
+tail -f test_run.log
 
 #test blat/pblat (after creating genome superT and denovo assembly):
 #snakemake -s snecklace/Snakefile -d $DIR --configfile 'sheep-demo.json' --cores 28 --use-conda -pr blat_genomeST_denovo

@@ -15,7 +15,8 @@ rule run_lace:
     version: "3.6"
     input:
         seqs = "clustering/" + DATASET + "_sequences.fa",
-        clusters = "clustering/" + DATASET + ".clusters"
+        clusters = "clustering/" + DATASET + ".clusters",
+        lace = config["home_dirs"]["lace"]
     params:
         config["params"]["lace"]
     conda: "../envs/lace.yml"
@@ -26,7 +27,7 @@ rule run_lace:
         working = directory(ST_OUTDIR + "/SuperFiles")
     shell:
        # "conda upgrade matplotlib -y; "
-        "Lace.py --cores {threads} {params} "
+        "python {input.lace} --cores {threads} {params} "
            # "--tidy "
             "--outputDir {output.working} "
             "{input.seqs} {input.clusters} ;"
