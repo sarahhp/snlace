@@ -4,3 +4,5 @@ talens_all_configs/*
 hl_configs/*
 hl_logs/*
 snecklace/stats_scripts/__pycache__/*
+config_f.json
+commands_f.sh
