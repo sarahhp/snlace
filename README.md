@@ -15,7 +15,7 @@ cd snlace
 Create a conda environment with the necessary packages (not necessary if using the docker image)
 ```
 conda env create -f snecklace/envs/nlace.yml --name nlace
-source activate nlace
+conda activate nlace
 ```
 
 Download demo data
