@@ -37,7 +37,8 @@
         },
     "home_dirs":{
         "trinity":"/home/sarah/pkgs/conda/miniconda/envs/nlace3/opt/trinity-2.8.4",
-        "tools":"snecklace/tools"
+        "tools":"snecklace/tools",
+	"lace":"lace.py"
         },
     "max_threads":32
 }
